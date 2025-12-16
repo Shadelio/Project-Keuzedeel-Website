@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inloggen | Keuzedeel</title>
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="page">
+      <a class="skip-link" href="#main">Ga naar inhoud</a>
+
+      <header class="topbar" role="banner">
+        <div class="container topbar__inner">
+          <a class="brand" href="login.html" aria-label="Keuzedeel home">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__text">
+              <span class="brand__title">Keuzedeel Portaal</span>
+              <span class="brand__sub">Schoolomgeving</span>
+            </span>
+          </a>
+
+          <nav class="nav" aria-label="Hoofdmenu">
+            <a class="nav__link" href="#">Home</a>
+            <a class="nav__link" href="#">Keuzedelen</a>
+            <a class="nav__link" href="#">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="main" class="main" role="main">
+        <div class="container">
+          <div class="auth">
+            <aside class="panel" aria-label="Informatie">
+              <h2 class="panel__title">Welkom bij het Keuzedeel Portaal</h2>
+              <p class="panel__text">
+                Log in met je schoolaccount om je keuzedelen te bekijken, voortgang te volgen en documenten te beheren.
+              </p>
+              <ul class="panel__list">
+                <li class="panel__item">Overzicht van keuzedelen</li>
+                <li class="panel__item">Inlevermomenten & deadlines</li>
+                <li class="panel__item">Berichten van docenten</li>
+              </ul>
+              <p class="panel__hint">Tip: gebruik je schoolmail en een sterk wachtwoord.</p>
+            </aside>
+
+            <section class="card" aria-labelledby="title">
+              <header class="card__header">
+                <h1 id="title" class="title">Inloggen</h1>
+                <p class="subtitle">Log in om verder te gaan naar jouw keuzedeel-omgeving.</p>
+              </header>
+
+              <form class="form" action="#" method="post" autocomplete="on">
+                <div class="field">
+                  <label class="label" for="email">E-mail</label>
+                  <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="jij@school.nl" required />
+                </div>
+
+                <div class="field">
+                  <div class="label-row">
+                    <label class="label" for="password">Wachtwoord</label>
+                    <a class="link" href="#">Wachtwoord vergeten?</a>
+                  </div>
+                  <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+                </div>
+
+                <div class="row">
+                  <label class="checkbox">
+                    <input class="checkbox__input" type="checkbox" name="remember" />
+                    <span class="checkbox__text">Onthoud mij</span>
+                  </label>
+                </div>
+
+                <button class="button" type="submit">Inloggen</button>
+
+                <p class="fineprint">
+                  Nog geen account?
+                  <a class="link" href="register.html">Registreer</a>
+                </p>
+              </form>
+            </section>
+          </div>
+
+          <footer class="footer" role="contentinfo">
+            <span class="footer__item">© <span id="year">2025</span> Keuzedeel</span>
+            <a class="footer__item link" href="#">Privacy</a>
+            <a class="footer__item link" href="#">Support</a>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

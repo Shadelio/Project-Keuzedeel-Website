@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registreren | Keuzedeel</title>
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="page">
+      <a class="skip-link" href="#main">Ga naar inhoud</a>
+
+      <header class="topbar" role="banner">
+        <div class="container topbar__inner">
+          <a class="brand" href="login.html" aria-label="Keuzedeel home">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__text">
+              <span class="brand__title">Keuzedeel Portaal</span>
+              <span class="brand__sub">Schoolomgeving</span>
+            </span>
+          </a>
+
+          <nav class="nav" aria-label="Hoofdmenu">
+            <a class="nav__link" href="login.html">Inloggen</a>
+            <a class="nav__link" href="register.html" aria-current="page">Registreren</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="main" class="main" role="main">
+        <div class="container">
+          <div class="auth">
+            <aside class="panel" aria-label="Informatie">
+              <h2 class="panel__title">Maak een account aan</h2>
+              <p class="panel__text">
+                Registreer met je schoolgegevens. Daarna kun je direct inloggen en je keuzedelen beheren.
+              </p>
+              <ul class="panel__list">
+                <li class="panel__item">Veilig account met school e-mail</li>
+                <li class="panel__item">Toegang tot opdrachten & documenten</li>
+                <li class="panel__item">Overzichtelijke voortgang</li>
+              </ul>
+              <p class="panel__hint">Let op: gebruik bij voorkeur je officiële schoolmail.</p>
+            </aside>
+
+            <section class="card" aria-labelledby="title">
+              <header class="card__header">
+                <h1 id="title" class="title">Registreren</h1>
+                <p class="subtitle">Vul je gegevens in om een account aan te maken.</p>
+              </header>
+
+              <form class="form" action="#" method="post" autocomplete="on">
+                <div class="field">
+                  <label class="label" for="name">Naam</label>
+                  <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="Voornaam Achternaam" required />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="email">E-mail</label>
+                  <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="jij@school.nl" required />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="password">Wachtwoord</label>
+                  <input class="input" id="password" name="password" type="password" autocomplete="new-password" placeholder="Minimaal 8 tekens" required />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="password_confirmation">Bevestig wachtwoord</label>
+                  <input class="input" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" placeholder="Nogmaals" required />
+                </div>
+
+                <div class="row">
+                  <label class="checkbox">
+                    <input class="checkbox__input" type="checkbox" name="terms" required />
+                    <span class="checkbox__text">Ik ga akkoord met de voorwaarden</span>
+                  </label>
+                </div>
+
+                <button class="button" type="submit">Account aanmaken</button>
+
+                <p class="fineprint">
+                  Heb je al een account?
+                  <a class="link" href="login.html">Log in</a>
+                </p>
+              </form>
+            </section>
+          </div>
+
+          <footer class="footer" role="contentinfo">
+            <span class="footer__item">© <span id="year">2025</span> Keuzedeel</span>
+            <a class="footer__item link" href="#">Privacy</a>
+            <a class="footer__item link" href="#">Support</a>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
