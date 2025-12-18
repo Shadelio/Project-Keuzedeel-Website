@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Opleidingen | Keuzedeel Portaal</title>
+    <title>Cookiebeleid | Keuzedeel Portaal</title>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
   </head>
   <body>
     <div class="site">
@@ -16,7 +16,7 @@
       <!-- Header -->
       <header class="header">
         <div class="header__container">
-          <a class="logo" href="login.html">
+          <a class="logo" href="/login">
             <div class="logo__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -32,11 +32,11 @@
           </a>
 
           <nav class="nav">
-            <a class="nav__item nav__item--active" href="opleidingen.html">Opleidingen</a>
-            <a class="nav__item" href="over-de-school.html">Over ons</a>
+            <a class="nav__item" href="#">Opleidingen</a>
+            <a class="nav__item" href="#">Over ons</a>
             <a class="nav__item" href="#">Contact</a>
-            <a class="nav__item" href="login.html">Inloggen</a>
-            <a class="nav__btn" href="register.html">Aanmelden</a>
+            <a class="nav__item" href="/login">Inloggen</a>
+            <a class="nav__btn" href="/register">Aanmelden</a>
           </nav>
 
           <button class="mobile-menu" aria-label="Menu">
@@ -52,9 +52,9 @@
         <div class="hero__bg"></div>
         <div class="hero__container">
           <div class="hero__content">
-            <span class="hero__badge">Onderwijs</span>
-            <h1 class="hero__title">Opleidingen</h1>
-            <p class="hero__text">Ontdek ons brede aanbod van MBO-opleidingen</p>
+            <span class="hero__badge">Juridisch</span>
+            <h1 class="hero__title">Cookiebeleid</h1>
+            <p class="hero__text">Informatie over het gebruik van cookies op onze website</p>
           </div>
         </div>
       </section>
@@ -63,58 +63,47 @@
       <main class="main">
         <div class="main__container">
           <div class="card card--info">
-            <h2 class="card__title">Ons Opleidingsaanbod</h2>
-            <p class="card__subtitle">Kies de opleiding die bij jou past</p>
+            <h2 class="card__title">Cookies</h2>
+            <p class="card__subtitle">Laatst bijgewerkt: december 2025</p>
             
             <div class="content-section">
-              <h3 class="content-section__title">Techniek & ICT</h3>
-              <p class="content-section__text">Onze technische opleidingen bereiden je voor op een carrière in de techniek of ICT-sector:</p>
+              <h3 class="content-section__title">1. Wat zijn cookies?</h3>
+              <p class="content-section__text">Cookies zijn kleine tekstbestanden die op je computer of mobiele apparaat worden opgeslagen wanneer je onze website bezoekt. Ze helpen ons om je een betere ervaring te bieden.</p>
+            </div>
+
+            <div class="content-section">
+              <h3 class="content-section__title">2. Welke cookies gebruiken wij?</h3>
+              <p class="content-section__text">Wij gebruiken de volgende soorten cookies:</p>
               <ul class="content-section__list">
-                <li><strong>Software Developer</strong> - Niveau 4 | 3 jaar</li>
-                <li><strong>Applicatieontwikkelaar</strong> - Niveau 4 | 3 jaar</li>
-                <li><strong>ICT-beheerder</strong> - Niveau 4 | 3 jaar</li>
-                <li><strong>Technicus Engineering</strong> - Niveau 4 | 4 jaar</li>
-                <li><strong>Elektrotechniek</strong> - Niveau 3 | 3 jaar</li>
+                <li><strong>Functionele cookies:</strong> Noodzakelijk voor het functioneren van de website, zoals het onthouden van je inloggegevens</li>
+                <li><strong>Sessiecookies:</strong> Tijdelijke cookies die worden verwijderd wanneer je de browser sluit</li>
+                <li><strong>Analytische cookies:</strong> Helpen ons te begrijpen hoe bezoekers de website gebruiken</li>
               </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Economie & Handel</h3>
-              <p class="content-section__text">Voor een carrière in business, marketing of financiën:</p>
+              <h3 class="content-section__title">3. Functionele cookies</h3>
+              <p class="content-section__text">Deze cookies zijn essentieel voor het gebruik van het portaal:</p>
               <ul class="content-section__list">
-                <li><strong>Commercieel Medewerker</strong> - Niveau 3 | 2,5 jaar</li>
-                <li><strong>Marketing & Communicatie</strong> - Niveau 4 | 3 jaar</li>
-                <li><strong>Financiële Dienstverlening</strong> - Niveau 4 | 3 jaar</li>
-                <li><strong>Ondernemer Retail</strong> - Niveau 4 | 3 jaar</li>
+                <li>Inlogsessie bijhouden</li>
+                <li>Taalvoorkeuren onthouden</li>
+                <li>Beveiligingsinstellingen</li>
               </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Zorg & Welzijn</h3>
-              <p class="content-section__text">Werk met mensen en maak het verschil:</p>
-              <ul class="content-section__list">
-                <li><strong>Verzorgende IG</strong> - Niveau 3 | 3 jaar</li>
-                <li><strong>Verpleegkundige</strong> - Niveau 4 | 4 jaar</li>
-                <li><strong>Maatschappelijke Zorg</strong> - Niveau 4 | 3 jaar</li>
-                <li><strong>Pedagogisch Medewerker</strong> - Niveau 4 | 3 jaar</li>
-              </ul>
+              <h3 class="content-section__title">4. Cookies beheren</h3>
+              <p class="content-section__text">Je kunt cookies beheren via je browserinstellingen. Let op: het uitschakelen van cookies kan invloed hebben op de werking van het portaal.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Keuzedelen</h3>
-              <p class="content-section__text">Naast je hoofdopleiding volg je keuzedelen om je te specialiseren of te verbreden. Voorbeelden van keuzedelen:</p>
-              <ul class="content-section__list">
-                <li>Ondernemend Gedrag</li>
-                <li>Digitale Vaardigheden Gevorderd</li>
-                <li>Duurzaamheid in het Beroep</li>
-                <li>Engels in de Beroepscontext</li>
-                <li>Oriëntatie op Ondernemerschap</li>
-              </ul>
+              <h3 class="content-section__title">5. Cookies van derden</h3>
+              <p class="content-section__text">Wij gebruiken geen cookies van derden voor marketingdoeleinden. Alleen essentiële diensten zoals Google Fonts kunnen cookies plaatsen.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Meer informatie</h3>
-              <p class="content-section__text">Wil je meer weten over een specifieke opleiding? Kom naar een open dag of neem contact op via <a href="mailto:aanmelden@school.nl" class="content-section__link">aanmelden@school.nl</a></p>
+              <h3 class="content-section__title">6. Meer informatie</h3>
+              <p class="content-section__text">Voor vragen over ons cookiebeleid kun je contact opnemen via <a href="mailto:privacy@school.nl" class="content-section__link">privacy@school.nl</a></p>
             </div>
           </div>
         </div>
@@ -142,10 +131,10 @@
             <div class="footer__section">
               <h4 class="footer__heading">Informatie</h4>
               <ul class="footer__list">
-                <li><a href="over-de-school.html">Over de School</a></li>
-                <li><a href="opleidingen.html">Opleidingen</a></li>
-                <li><a href="nieuwsberichten.html">Nieuwsberichten</a></li>
-                <li><a href="veelgestelde-vragen.html">Veelgestelde Vragen</a></li>
+                <li><a href="#">Over de School</a></li>
+                <li><a href="#">Opleidingen</a></li>
+                <li><a href="#">Nieuwsberichten</a></li>
+                <li><a href="#">Veelgestelde Vragen</a></li>
               </ul>
             </div>
             
@@ -162,10 +151,10 @@
           
           <div class="footer__bottom">
             <div class="footer__links">
-              <a href="privacy.html">Privacy</a>
-              <a href="voorwaarden.html">Voorwaarden</a>
-              <a href="cookiebeleid.html">Cookiebeleid</a>
-              <a href="toegankelijkheid.html">Toegankelijkheid</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/voorwaarden">Voorwaarden</a>
+              <a href="/cookiebeleid">Cookiebeleid</a>
+              <a href="/toegankelijkheid">Toegankelijkheid</a>
             </div>
             <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
           </div>

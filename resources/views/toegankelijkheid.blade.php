@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nieuwsberichten | Keuzedeel Portaal</title>
+    <title>Toegankelijkheid | Keuzedeel Portaal</title>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
   </head>
   <body>
     <div class="site">
@@ -16,7 +16,7 @@
       <!-- Header -->
       <header class="header">
         <div class="header__container">
-          <a class="logo" href="login.html">
+          <a class="logo" href="/login">
             <div class="logo__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -32,11 +32,11 @@
           </a>
 
           <nav class="nav">
-            <a class="nav__item" href="opleidingen.html">Opleidingen</a>
-            <a class="nav__item" href="over-de-school.html">Over ons</a>
+            <a class="nav__item" href="#">Opleidingen</a>
+            <a class="nav__item" href="#">Over ons</a>
             <a class="nav__item" href="#">Contact</a>
-            <a class="nav__item" href="login.html">Inloggen</a>
-            <a class="nav__btn" href="register.html">Aanmelden</a>
+            <a class="nav__item" href="/login">Inloggen</a>
+            <a class="nav__btn" href="/register">Aanmelden</a>
           </nav>
 
           <button class="mobile-menu" aria-label="Menu">
@@ -52,9 +52,9 @@
         <div class="hero__bg"></div>
         <div class="hero__container">
           <div class="hero__content">
-            <span class="hero__badge">Actueel</span>
-            <h1 class="hero__title">Nieuwsberichten</h1>
-            <p class="hero__text">Blijf op de hoogte van het laatste schoolnieuws</p>
+            <span class="hero__badge">Inclusiviteit</span>
+            <h1 class="hero__title">Toegankelijkheid</h1>
+            <p class="hero__text">Ons platform is voor iedereen toegankelijk</p>
           </div>
         </div>
       </section>
@@ -63,43 +63,54 @@
       <main class="main">
         <div class="main__container">
           <div class="card card--info">
-            <h2 class="card__title">Laatste Nieuws</h2>
-            <p class="card__subtitle">Wat er speelt op onze school</p>
+            <h2 class="card__title">Toegankelijkheidsverklaring</h2>
+            <p class="card__subtitle">Laatst bijgewerkt: december 2025</p>
             
             <div class="content-section">
-              <h3 class="content-section__title">Kerstvakantie 2025</h3>
-              <p class="content-section__text"><em>18 december 2025</em></p>
-              <p class="content-section__text">De kerstvakantie loopt van maandag 23 december tot en met zondag 5 januari. We wensen alle studenten en medewerkers fijne feestdagen en een gelukkig nieuwjaar! De lessen starten weer op maandag 6 januari 2026.</p>
+              <h3 class="content-section__title">1. Onze toewijding</h3>
+              <p class="content-section__text">Keuzedeel Portaal streeft ernaar om onze website toegankelijk te maken voor iedereen, inclusief mensen met een beperking. Wij werken continu aan het verbeteren van de toegankelijkheid van onze website.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Open Dag op 25 januari</h3>
-              <p class="content-section__text"><em>15 december 2025</em></p>
-              <p class="content-section__text">Op zaterdag 25 januari organiseren we onze jaarlijkse open dag. Kom kennismaken met onze opleidingen, docenten en studenten. Van 10:00 tot 15:00 uur ben je van harte welkom. Aanmelden is niet nodig, loop gerust binnen!</p>
+              <h3 class="content-section__title">2. Toegankelijkheidsstandaarden</h3>
+              <p class="content-section__text">Wij streven naar naleving van de Web Content Accessibility Guidelines (WCAG) 2.1 op niveau AA. Dit betekent onder andere:</p>
+              <ul class="content-section__list">
+                <li>Duidelijke en leesbare teksten</li>
+                <li>Voldoende kleurcontrast</li>
+                <li>Toetsenbordnavigatie mogelijk</li>
+                <li>Alternatieve teksten voor afbeeldingen</li>
+                <li>Duidelijke formulierlabels</li>
+              </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Nieuwe Keuzedelen beschikbaar</h3>
-              <p class="content-section__text"><em>10 december 2025</em></p>
-              <p class="content-section__text">Vanaf het tweede semester zijn er vijf nieuwe keuzedelen beschikbaar, waaronder "Artificial Intelligence Basis" en "Duurzaam Ondernemen". Check het Keuzedeel Portaal voor meer informatie en schrijf je in voor 15 januari.</p>
+              <h3 class="content-section__title">3. Ondersteunde hulpmiddelen</h3>
+              <p class="content-section__text">Onze website is getest met en ondersteunt:</p>
+              <ul class="content-section__list">
+                <li>Schermlezers (NVDA, JAWS, VoiceOver)</li>
+                <li>Vergrootglazen</li>
+                <li>Toetsenbordnavigatie</li>
+                <li>Spraakbesturing</li>
+              </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Studenten winnen Skills Wedstrijd</h3>
-              <p class="content-section__text"><em>5 december 2025</em></p>
-              <p class="content-section__text">Onze ICT-studenten hebben de regionale Skills Wedstrijd gewonnen! Team "CodeCrafters" behaalde de eerste plaats met hun innovatieve app voor duurzame mobiliteit. Gefeliciteerd aan Lisa, Thomas en Priya!</p>
+              <h3 class="content-section__title">4. Bekende beperkingen</h3>
+              <p class="content-section__text">Wij werken aan de volgende verbeterpunten:</p>
+              <ul class="content-section__list">
+                <li>Sommige oudere PDF-documenten zijn mogelijk niet volledig toegankelijk</li>
+                <li>Video's krijgen geleidelijk ondertiteling</li>
+              </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Nieuwe website gelanceerd</h3>
-              <p class="content-section__text"><em>1 december 2025</em></p>
-              <p class="content-section__text">Welkom op de vernieuwde versie van het Keuzedeel Portaal! We hebben de website volledig vernieuwd met een frisse look en verbeterde functionaliteit. Heb je feedback? Laat het ons weten via de helpdesk.</p>
+              <h3 class="content-section__title">5. Problemen melden</h3>
+              <p class="content-section__text">Ervaar je problemen met de toegankelijkheid van onze website? Laat het ons weten! We helpen je graag en gebruiken je feedback om te verbeteren.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Stage-markt op 20 november</h3>
-              <p class="content-section__text"><em>15 november 2025</em></p>
-              <p class="content-section__text">Meer dan 50 bedrijven waren aanwezig op onze jaarlijkse stage-markt. Veel studenten hebben waardevolle contacten gelegd voor hun stage in het voorjaar. Dank aan alle deelnemende bedrijven!</p>
+              <h3 class="content-section__title">6. Contact</h3>
+              <p class="content-section__text">Voor vragen of opmerkingen over toegankelijkheid kun je contact opnemen via <a href="mailto:toegankelijkheid@school.nl" class="content-section__link">toegankelijkheid@school.nl</a> of bel de helpdesk.</p>
             </div>
           </div>
         </div>
@@ -127,10 +138,10 @@
             <div class="footer__section">
               <h4 class="footer__heading">Informatie</h4>
               <ul class="footer__list">
-                <li><a href="over-de-school.html">Over de School</a></li>
-                <li><a href="opleidingen.html">Opleidingen</a></li>
-                <li><a href="nieuwsberichten.html">Nieuwsberichten</a></li>
-                <li><a href="veelgestelde-vragen.html">Veelgestelde Vragen</a></li>
+                <li><a href="#">Over de School</a></li>
+                <li><a href="#">Opleidingen</a></li>
+                <li><a href="#">Nieuwsberichten</a></li>
+                <li><a href="#">Veelgestelde Vragen</a></li>
               </ul>
             </div>
             
@@ -147,10 +158,10 @@
           
           <div class="footer__bottom">
             <div class="footer__links">
-              <a href="privacy.html">Privacy</a>
-              <a href="voorwaarden.html">Voorwaarden</a>
-              <a href="cookiebeleid.html">Cookiebeleid</a>
-              <a href="toegankelijkheid.html">Toegankelijkheid</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/voorwaarden">Voorwaarden</a>
+              <a href="/cookiebeleid">Cookiebeleid</a>
+              <a href="/toegankelijkheid">Toegankelijkheid</a>
             </div>
             <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
           </div>

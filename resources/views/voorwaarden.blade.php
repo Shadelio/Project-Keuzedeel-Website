@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Over de School | Keuzedeel Portaal</title>
+    <title>Voorwaarden | Keuzedeel Portaal</title>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
   </head>
   <body>
     <div class="site">
@@ -16,7 +16,7 @@
       <!-- Header -->
       <header class="header">
         <div class="header__container">
-          <a class="logo" href="login.html">
+          <a class="logo" href="/login">
             <div class="logo__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -32,11 +32,11 @@
           </a>
 
           <nav class="nav">
-            <a class="nav__item" href="opleidingen.html">Opleidingen</a>
-            <a class="nav__item nav__item--active" href="over-de-school.html">Over ons</a>
+            <a class="nav__item" href="#">Opleidingen</a>
+            <a class="nav__item" href="#">Over ons</a>
             <a class="nav__item" href="#">Contact</a>
-            <a class="nav__item" href="login.html">Inloggen</a>
-            <a class="nav__btn" href="register.html">Aanmelden</a>
+            <a class="nav__item" href="/login">Inloggen</a>
+            <a class="nav__btn" href="/register">Aanmelden</a>
           </nav>
 
           <button class="mobile-menu" aria-label="Menu">
@@ -52,9 +52,9 @@
         <div class="hero__bg"></div>
         <div class="hero__container">
           <div class="hero__content">
-            <span class="hero__badge">Over Ons</span>
-            <h1 class="hero__title">Over de School</h1>
-            <p class="hero__text">Leer meer over onze onderwijsinstelling en missie</p>
+            <span class="hero__badge">Juridisch</span>
+            <h1 class="hero__title">Algemene Voorwaarden</h1>
+            <p class="hero__text">De regels en voorwaarden voor het gebruik van ons platform</p>
           </div>
         </div>
       </section>
@@ -63,49 +63,48 @@
       <main class="main">
         <div class="main__container">
           <div class="card card--info">
-            <h2 class="card__title">Welkom bij onze school</h2>
-            <p class="card__subtitle">Al meer dan 25 jaar actief in het MBO-onderwijs</p>
+            <h2 class="card__title">Gebruiksvoorwaarden</h2>
+            <p class="card__subtitle">Laatst bijgewerkt: december 2025</p>
             
             <div class="content-section">
-              <h3 class="content-section__title">Onze Missie</h3>
-              <p class="content-section__text">Wij geloven dat elk talent telt. Onze missie is om studenten voor te bereiden op een succesvolle carrière door praktijkgericht onderwijs te bieden dat aansluit bij de arbeidsmarkt. We streven ernaar om een veilige en inspirerende leeromgeving te creëren waar iedereen zich kan ontwikkelen.</p>
+              <h3 class="content-section__title">1. Acceptatie van voorwaarden</h3>
+              <p class="content-section__text">Door gebruik te maken van het Keuzedeel Portaal ga je akkoord met deze algemene voorwaarden. Als je niet akkoord gaat met deze voorwaarden, maak dan geen gebruik van onze diensten.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Onze Visie</h3>
-              <p class="content-section__text">Wij willen de beste MBO-school van de regio zijn, waar studenten niet alleen vakkennis opdoen, maar ook groeien als persoon. Door nauwe samenwerking met het bedrijfsleven zorgen we ervoor dat onze studenten klaar zijn voor de toekomst.</p>
-            </div>
-
-            <div class="content-section">
-              <h3 class="content-section__title">Kernwaarden</h3>
+              <h3 class="content-section__title">2. Gebruikersaccount</h3>
+              <p class="content-section__text">Om gebruik te maken van het portaal heb je een geldig schoolaccount nodig. Je bent verantwoordelijk voor:</p>
               <ul class="content-section__list">
-                <li><strong>Respect:</strong> We behandelen iedereen met waardigheid en respect</li>
-                <li><strong>Verantwoordelijkheid:</strong> We nemen eigenaarschap over ons leren en handelen</li>
-                <li><strong>Samenwerking:</strong> We bereiken meer door samen te werken</li>
-                <li><strong>Ontwikkeling:</strong> We blijven continu leren en verbeteren</li>
-                <li><strong>Innovatie:</strong> We omarmen nieuwe technologieën en methoden</li>
+                <li>Het geheimhouden van je inloggegevens</li>
+                <li>Alle activiteiten die onder jouw account plaatsvinden</li>
+                <li>Het direct melden van ongeautoriseerd gebruik</li>
               </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Onze Geschiedenis</h3>
-              <p class="content-section__text">Onze school is in 1998 opgericht met als doel om praktijkgericht beroepsonderwijs aan te bieden. Sindsdien zijn we uitgegroeid tot een toonaangevende MBO-instelling met meerdere locaties en duizenden studenten.</p>
-            </div>
-
-            <div class="content-section">
-              <h3 class="content-section__title">Cijfers & Feiten</h3>
+              <h3 class="content-section__title">3. Toegestaan gebruik</h3>
+              <p class="content-section__text">Het portaal mag uitsluitend worden gebruikt voor onderwijsdoeleinden. Het is niet toegestaan om:</p>
               <ul class="content-section__list">
-                <li>Meer dan 5.000 studenten</li>
-                <li>400+ medewerkers</li>
-                <li>50+ opleidingen</li>
-                <li>95% slagingspercentage</li>
-                <li>200+ partnerbedrijven</li>
+                <li>Het systeem te misbruiken of te manipuleren</li>
+                <li>Onrechtmatige content te uploaden</li>
+                <li>Andermans gegevens te bekijken of aan te passen</li>
+                <li>Het systeem te overbelasten</li>
               </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">Contact</h3>
-              <p class="content-section__text">Wil je meer weten over onze school? Neem gerust contact met ons op via <a href="mailto:info@school.nl" class="content-section__link">info@school.nl</a> of bel ons op (010) 123 4567.</p>
+              <h3 class="content-section__title">4. Intellectueel eigendom</h3>
+              <p class="content-section__text">Alle content op het portaal, inclusief teksten, afbeeldingen en software, is eigendom van de school of haar licentiegevers. Niets mag worden gekopieerd zonder toestemming.</p>
+            </div>
+
+            <div class="content-section">
+              <h3 class="content-section__title">5. Aansprakelijkheid</h3>
+              <p class="content-section__text">De school is niet aansprakelijk voor schade die voortvloeit uit het gebruik van het portaal, tenzij sprake is van opzet of grove nalatigheid.</p>
+            </div>
+
+            <div class="content-section">
+              <h3 class="content-section__title">6. Wijzigingen</h3>
+              <p class="content-section__text">Wij behouden ons het recht voor om deze voorwaarden te wijzigen. Wijzigingen worden via het portaal gecommuniceerd.</p>
             </div>
           </div>
         </div>
@@ -133,10 +132,10 @@
             <div class="footer__section">
               <h4 class="footer__heading">Informatie</h4>
               <ul class="footer__list">
-                <li><a href="over-de-school.html">Over de School</a></li>
-                <li><a href="opleidingen.html">Opleidingen</a></li>
-                <li><a href="nieuwsberichten.html">Nieuwsberichten</a></li>
-                <li><a href="veelgestelde-vragen.html">Veelgestelde Vragen</a></li>
+                <li><a href="#">Over de School</a></li>
+                <li><a href="#">Opleidingen</a></li>
+                <li><a href="#">Nieuwsberichten</a></li>
+                <li><a href="#">Veelgestelde Vragen</a></li>
               </ul>
             </div>
             
@@ -153,10 +152,10 @@
           
           <div class="footer__bottom">
             <div class="footer__links">
-              <a href="privacy.html">Privacy</a>
-              <a href="voorwaarden.html">Voorwaarden</a>
-              <a href="cookiebeleid.html">Cookiebeleid</a>
-              <a href="toegankelijkheid.html">Toegankelijkheid</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/voorwaarden">Voorwaarden</a>
+              <a href="/cookiebeleid">Cookiebeleid</a>
+              <a href="/toegankelijkheid">Toegankelijkheid</a>
             </div>
             <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
           </div>

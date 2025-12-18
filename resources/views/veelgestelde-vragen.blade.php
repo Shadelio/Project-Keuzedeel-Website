@@ -6,7 +6,7 @@
     <title>Veelgestelde Vragen | Keuzedeel Portaal</title>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
   </head>
   <body>
     <div class="site">
@@ -16,7 +16,7 @@
       <!-- Header -->
       <header class="header">
         <div class="header__container">
-          <a class="logo" href="login.html">
+          <a class="logo" href="/login">
             <div class="logo__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -32,11 +32,11 @@
           </a>
 
           <nav class="nav">
-            <a class="nav__item" href="opleidingen.html">Opleidingen</a>
-            <a class="nav__item" href="over-de-school.html">Over ons</a>
+            <a class="nav__item" href="/opleidingen">Opleidingen</a>
+            <a class="nav__item" href="/over-de-school">Over ons</a>
             <a class="nav__item" href="#">Contact</a>
-            <a class="nav__item" href="login.html">Inloggen</a>
-            <a class="nav__btn" href="register.html">Aanmelden</a>
+            <a class="nav__item" href="/login">Inloggen</a>
+            <a class="nav__btn" href="/register">Aanmelden</a>
           </nav>
 
           <button class="mobile-menu" aria-label="Menu">
@@ -136,10 +136,10 @@
             <div class="footer__section">
               <h4 class="footer__heading">Informatie</h4>
               <ul class="footer__list">
-                <li><a href="over-de-school.html">Over de School</a></li>
-                <li><a href="opleidingen.html">Opleidingen</a></li>
-                <li><a href="nieuwsberichten.html">Nieuwsberichten</a></li>
-                <li><a href="veelgestelde-vragen.html">Veelgestelde Vragen</a></li>
+                <li><a href="/over-de-school">Over de School</a></li>
+                <li><a href="/opleidingen">Opleidingen</a></li>
+                <li><a href="/nieuwsberichten">Nieuwsberichten</a></li>
+                <li><a href="/veelgestelde-vragen">Veelgestelde Vragen</a></li>
               </ul>
             </div>
             
@@ -156,10 +156,10 @@
           
           <div class="footer__bottom">
             <div class="footer__links">
-              <a href="privacy.html">Privacy</a>
-              <a href="voorwaarden.html">Voorwaarden</a>
-              <a href="cookiebeleid.html">Cookiebeleid</a>
-              <a href="toegankelijkheid.html">Toegankelijkheid</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/voorwaarden">Voorwaarden</a>
+              <a href="/cookiebeleid">Cookiebeleid</a>
+              <a href="/toegankelijkheid">Toegankelijkheid</a>
             </div>
             <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
           </div>

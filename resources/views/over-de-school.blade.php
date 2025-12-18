@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Toegankelijkheid | Keuzedeel Portaal</title>
+    <title>Over de School | Keuzedeel Portaal</title>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
   </head>
   <body>
     <div class="site">
@@ -16,7 +16,7 @@
       <!-- Header -->
       <header class="header">
         <div class="header__container">
-          <a class="logo" href="login.html">
+          <a class="logo" href="/login">
             <div class="logo__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -32,11 +32,11 @@
           </a>
 
           <nav class="nav">
-            <a class="nav__item" href="#">Opleidingen</a>
-            <a class="nav__item" href="#">Over ons</a>
+            <a class="nav__item" href="/opleidingen">Opleidingen</a>
+            <a class="nav__item nav__item--active" href="/over-de-school">Over ons</a>
             <a class="nav__item" href="#">Contact</a>
-            <a class="nav__item" href="login.html">Inloggen</a>
-            <a class="nav__btn" href="register.html">Aanmelden</a>
+            <a class="nav__item" href="/login">Inloggen</a>
+            <a class="nav__btn" href="/register">Aanmelden</a>
           </nav>
 
           <button class="mobile-menu" aria-label="Menu">
@@ -52,9 +52,9 @@
         <div class="hero__bg"></div>
         <div class="hero__container">
           <div class="hero__content">
-            <span class="hero__badge">Inclusiviteit</span>
-            <h1 class="hero__title">Toegankelijkheid</h1>
-            <p class="hero__text">Ons platform is voor iedereen toegankelijk</p>
+            <span class="hero__badge">Over Ons</span>
+            <h1 class="hero__title">Over de School</h1>
+            <p class="hero__text">Leer meer over onze onderwijsinstelling en missie</p>
           </div>
         </div>
       </section>
@@ -63,54 +63,49 @@
       <main class="main">
         <div class="main__container">
           <div class="card card--info">
-            <h2 class="card__title">Toegankelijkheidsverklaring</h2>
-            <p class="card__subtitle">Laatst bijgewerkt: december 2025</p>
+            <h2 class="card__title">Welkom bij onze school</h2>
+            <p class="card__subtitle">Al meer dan 25 jaar actief in het MBO-onderwijs</p>
             
             <div class="content-section">
-              <h3 class="content-section__title">1. Onze toewijding</h3>
-              <p class="content-section__text">Keuzedeel Portaal streeft ernaar om onze website toegankelijk te maken voor iedereen, inclusief mensen met een beperking. Wij werken continu aan het verbeteren van de toegankelijkheid van onze website.</p>
+              <h3 class="content-section__title">Onze Missie</h3>
+              <p class="content-section__text">Wij geloven dat elk talent telt. Onze missie is om studenten voor te bereiden op een succesvolle carrière door praktijkgericht onderwijs te bieden dat aansluit bij de arbeidsmarkt. We streven ernaar om een veilige en inspirerende leeromgeving te creëren waar iedereen zich kan ontwikkelen.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">2. Toegankelijkheidsstandaarden</h3>
-              <p class="content-section__text">Wij streven naar naleving van de Web Content Accessibility Guidelines (WCAG) 2.1 op niveau AA. Dit betekent onder andere:</p>
+              <h3 class="content-section__title">Onze Visie</h3>
+              <p class="content-section__text">Wij willen de beste MBO-school van de regio zijn, waar studenten niet alleen vakkennis opdoen, maar ook groeien als persoon. Door nauwe samenwerking met het bedrijfsleven zorgen we ervoor dat onze studenten klaar zijn voor de toekomst.</p>
+            </div>
+
+            <div class="content-section">
+              <h3 class="content-section__title">Kernwaarden</h3>
               <ul class="content-section__list">
-                <li>Duidelijke en leesbare teksten</li>
-                <li>Voldoende kleurcontrast</li>
-                <li>Toetsenbordnavigatie mogelijk</li>
-                <li>Alternatieve teksten voor afbeeldingen</li>
-                <li>Duidelijke formulierlabels</li>
+                <li><strong>Respect:</strong> We behandelen iedereen met waardigheid en respect</li>
+                <li><strong>Verantwoordelijkheid:</strong> We nemen eigenaarschap over ons leren en handelen</li>
+                <li><strong>Samenwerking:</strong> We bereiken meer door samen te werken</li>
+                <li><strong>Ontwikkeling:</strong> We blijven continu leren en verbeteren</li>
+                <li><strong>Innovatie:</strong> We omarmen nieuwe technologieën en methoden</li>
               </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">3. Ondersteunde hulpmiddelen</h3>
-              <p class="content-section__text">Onze website is getest met en ondersteunt:</p>
+              <h3 class="content-section__title">Onze Geschiedenis</h3>
+              <p class="content-section__text">Onze school is in 1998 opgericht met als doel om praktijkgericht beroepsonderwijs aan te bieden. Sindsdien zijn we uitgegroeid tot een toonaangevende MBO-instelling met meerdere locaties en duizenden studenten.</p>
+            </div>
+
+            <div class="content-section">
+              <h3 class="content-section__title">Cijfers & Feiten</h3>
               <ul class="content-section__list">
-                <li>Schermlezers (NVDA, JAWS, VoiceOver)</li>
-                <li>Vergrootglazen</li>
-                <li>Toetsenbordnavigatie</li>
-                <li>Spraakbesturing</li>
+                <li>Meer dan 5.000 studenten</li>
+                <li>400+ medewerkers</li>
+                <li>50+ opleidingen</li>
+                <li>95% slagingspercentage</li>
+                <li>200+ partnerbedrijven</li>
               </ul>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">4. Bekende beperkingen</h3>
-              <p class="content-section__text">Wij werken aan de volgende verbeterpunten:</p>
-              <ul class="content-section__list">
-                <li>Sommige oudere PDF-documenten zijn mogelijk niet volledig toegankelijk</li>
-                <li>Video's krijgen geleidelijk ondertiteling</li>
-              </ul>
-            </div>
-
-            <div class="content-section">
-              <h3 class="content-section__title">5. Problemen melden</h3>
-              <p class="content-section__text">Ervaar je problemen met de toegankelijkheid van onze website? Laat het ons weten! We helpen je graag en gebruiken je feedback om te verbeteren.</p>
-            </div>
-
-            <div class="content-section">
-              <h3 class="content-section__title">6. Contact</h3>
-              <p class="content-section__text">Voor vragen of opmerkingen over toegankelijkheid kun je contact opnemen via <a href="mailto:toegankelijkheid@school.nl" class="content-section__link">toegankelijkheid@school.nl</a> of bel de helpdesk.</p>
+              <h3 class="content-section__title">Contact</h3>
+              <p class="content-section__text">Wil je meer weten over onze school? Neem gerust contact met ons op via <a href="mailto:info@school.nl" class="content-section__link">info@school.nl</a> of bel ons op (010) 123 4567.</p>
             </div>
           </div>
         </div>
@@ -138,10 +133,10 @@
             <div class="footer__section">
               <h4 class="footer__heading">Informatie</h4>
               <ul class="footer__list">
-                <li><a href="#">Over de School</a></li>
-                <li><a href="#">Opleidingen</a></li>
-                <li><a href="#">Nieuwsberichten</a></li>
-                <li><a href="#">Veelgestelde Vragen</a></li>
+                <li><a href="/over-de-school">Over de School</a></li>
+                <li><a href="/opleidingen">Opleidingen</a></li>
+                <li><a href="/nieuwsberichten">Nieuwsberichten</a></li>
+                <li><a href="/veelgestelde-vragen">Veelgestelde Vragen</a></li>
               </ul>
             </div>
             
@@ -158,10 +153,10 @@
           
           <div class="footer__bottom">
             <div class="footer__links">
-              <a href="privacy.html">Privacy</a>
-              <a href="voorwaarden.html">Voorwaarden</a>
-              <a href="cookiebeleid.html">Cookiebeleid</a>
-              <a href="toegankelijkheid.html">Toegankelijkheid</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/voorwaarden">Voorwaarden</a>
+              <a href="/cookiebeleid">Cookiebeleid</a>
+              <a href="/toegankelijkheid">Toegankelijkheid</a>
             </div>
             <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
           </div>

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Voorwaarden | Keuzedeel Portaal</title>
+    <title>Nieuwsberichten | Keuzedeel Portaal</title>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
   </head>
   <body>
     <div class="site">
@@ -16,7 +16,7 @@
       <!-- Header -->
       <header class="header">
         <div class="header__container">
-          <a class="logo" href="login.html">
+          <a class="logo" href="/login">
             <div class="logo__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -32,11 +32,11 @@
           </a>
 
           <nav class="nav">
-            <a class="nav__item" href="#">Opleidingen</a>
-            <a class="nav__item" href="#">Over ons</a>
+            <a class="nav__item" href="/opleidingen">Opleidingen</a>
+            <a class="nav__item" href="/over-de-school">Over ons</a>
             <a class="nav__item" href="#">Contact</a>
-            <a class="nav__item" href="login.html">Inloggen</a>
-            <a class="nav__btn" href="register.html">Aanmelden</a>
+            <a class="nav__item" href="/login">Inloggen</a>
+            <a class="nav__btn" href="/register">Aanmelden</a>
           </nav>
 
           <button class="mobile-menu" aria-label="Menu">
@@ -52,9 +52,9 @@
         <div class="hero__bg"></div>
         <div class="hero__container">
           <div class="hero__content">
-            <span class="hero__badge">Juridisch</span>
-            <h1 class="hero__title">Algemene Voorwaarden</h1>
-            <p class="hero__text">De regels en voorwaarden voor het gebruik van ons platform</p>
+            <span class="hero__badge">Actueel</span>
+            <h1 class="hero__title">Nieuwsberichten</h1>
+            <p class="hero__text">Blijf op de hoogte van het laatste schoolnieuws</p>
           </div>
         </div>
       </section>
@@ -63,48 +63,43 @@
       <main class="main">
         <div class="main__container">
           <div class="card card--info">
-            <h2 class="card__title">Gebruiksvoorwaarden</h2>
-            <p class="card__subtitle">Laatst bijgewerkt: december 2025</p>
+            <h2 class="card__title">Laatste Nieuws</h2>
+            <p class="card__subtitle">Wat er speelt op onze school</p>
             
             <div class="content-section">
-              <h3 class="content-section__title">1. Acceptatie van voorwaarden</h3>
-              <p class="content-section__text">Door gebruik te maken van het Keuzedeel Portaal ga je akkoord met deze algemene voorwaarden. Als je niet akkoord gaat met deze voorwaarden, maak dan geen gebruik van onze diensten.</p>
+              <h3 class="content-section__title">Kerstvakantie 2025</h3>
+              <p class="content-section__text"><em>18 december 2025</em></p>
+              <p class="content-section__text">De kerstvakantie loopt van maandag 23 december tot en met zondag 5 januari. We wensen alle studenten en medewerkers fijne feestdagen en een gelukkig nieuwjaar! De lessen starten weer op maandag 6 januari 2026.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">2. Gebruikersaccount</h3>
-              <p class="content-section__text">Om gebruik te maken van het portaal heb je een geldig schoolaccount nodig. Je bent verantwoordelijk voor:</p>
-              <ul class="content-section__list">
-                <li>Het geheimhouden van je inloggegevens</li>
-                <li>Alle activiteiten die onder jouw account plaatsvinden</li>
-                <li>Het direct melden van ongeautoriseerd gebruik</li>
-              </ul>
+              <h3 class="content-section__title">Open Dag op 25 januari</h3>
+              <p class="content-section__text"><em>15 december 2025</em></p>
+              <p class="content-section__text">Op zaterdag 25 januari organiseren we onze jaarlijkse open dag. Kom kennismaken met onze opleidingen, docenten en studenten. Van 10:00 tot 15:00 uur ben je van harte welkom. Aanmelden is niet nodig, loop gerust binnen!</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">3. Toegestaan gebruik</h3>
-              <p class="content-section__text">Het portaal mag uitsluitend worden gebruikt voor onderwijsdoeleinden. Het is niet toegestaan om:</p>
-              <ul class="content-section__list">
-                <li>Het systeem te misbruiken of te manipuleren</li>
-                <li>Onrechtmatige content te uploaden</li>
-                <li>Andermans gegevens te bekijken of aan te passen</li>
-                <li>Het systeem te overbelasten</li>
-              </ul>
+              <h3 class="content-section__title">Nieuwe Keuzedelen beschikbaar</h3>
+              <p class="content-section__text"><em>10 december 2025</em></p>
+              <p class="content-section__text">Vanaf het tweede semester zijn er vijf nieuwe keuzedelen beschikbaar, waaronder "Artificial Intelligence Basis" en "Duurzaam Ondernemen". Check het Keuzedeel Portaal voor meer informatie en schrijf je in voor 15 januari.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">4. Intellectueel eigendom</h3>
-              <p class="content-section__text">Alle content op het portaal, inclusief teksten, afbeeldingen en software, is eigendom van de school of haar licentiegevers. Niets mag worden gekopieerd zonder toestemming.</p>
+              <h3 class="content-section__title">Studenten winnen Skills Wedstrijd</h3>
+              <p class="content-section__text"><em>5 december 2025</em></p>
+              <p class="content-section__text">Onze ICT-studenten hebben de regionale Skills Wedstrijd gewonnen! Team "CodeCrafters" behaalde de eerste plaats met hun innovatieve app voor duurzame mobiliteit. Gefeliciteerd aan Lisa, Thomas en Priya!</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">5. Aansprakelijkheid</h3>
-              <p class="content-section__text">De school is niet aansprakelijk voor schade die voortvloeit uit het gebruik van het portaal, tenzij sprake is van opzet of grove nalatigheid.</p>
+              <h3 class="content-section__title">Nieuwe website gelanceerd</h3>
+              <p class="content-section__text"><em>1 december 2025</em></p>
+              <p class="content-section__text">Welkom op de vernieuwde versie van het Keuzedeel Portaal! We hebben de website volledig vernieuwd met een frisse look en verbeterde functionaliteit. Heb je feedback? Laat het ons weten via de helpdesk.</p>
             </div>
 
             <div class="content-section">
-              <h3 class="content-section__title">6. Wijzigingen</h3>
-              <p class="content-section__text">Wij behouden ons het recht voor om deze voorwaarden te wijzigen. Wijzigingen worden via het portaal gecommuniceerd.</p>
+              <h3 class="content-section__title">Stage-markt op 20 november</h3>
+              <p class="content-section__text"><em>15 november 2025</em></p>
+              <p class="content-section__text">Meer dan 50 bedrijven waren aanwezig op onze jaarlijkse stage-markt. Veel studenten hebben waardevolle contacten gelegd voor hun stage in het voorjaar. Dank aan alle deelnemende bedrijven!</p>
             </div>
           </div>
         </div>
@@ -132,10 +127,10 @@
             <div class="footer__section">
               <h4 class="footer__heading">Informatie</h4>
               <ul class="footer__list">
-                <li><a href="#">Over de School</a></li>
-                <li><a href="#">Opleidingen</a></li>
-                <li><a href="#">Nieuwsberichten</a></li>
-                <li><a href="#">Veelgestelde Vragen</a></li>
+                <li><a href="/over-de-school">Over de School</a></li>
+                <li><a href="/opleidingen">Opleidingen</a></li>
+                <li><a href="/nieuwsberichten">Nieuwsberichten</a></li>
+                <li><a href="/veelgestelde-vragen">Veelgestelde Vragen</a></li>
               </ul>
             </div>
             
@@ -152,10 +147,10 @@
           
           <div class="footer__bottom">
             <div class="footer__links">
-              <a href="privacy.html">Privacy</a>
-              <a href="voorwaarden.html">Voorwaarden</a>
-              <a href="cookiebeleid.html">Cookiebeleid</a>
-              <a href="toegankelijkheid.html">Toegankelijkheid</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/voorwaarden">Voorwaarden</a>
+              <a href="/cookiebeleid">Cookiebeleid</a>
+              <a href="/toegankelijkheid">Toegankelijkheid</a>
             </div>
             <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
           </div>
