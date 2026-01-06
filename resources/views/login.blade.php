@@ -1,54 +1,11 @@
-<!doctype html>
-<html lang="nl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Inloggen | Keuzedeel Portaal</title>
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
-  </head>
-  <body>
-    <div class="site">
-      <!-- Header -->
-      <header class="header">
-        <div class="header__container">
-          <a class="logo" href="/login">
-            <div class="logo__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-                <path d="M12 14v7"/>
-              </svg>
-            </div>
-            <div class="logo__text">
-              <span class="logo__title">Keuzedeel Portaal</span>
-              <span class="logo__tagline">Je toekomst begint hier</span>
-            </div>
-          </a>
+@extends('layouts.app')
 
-          <nav class="nav">
-            <a class="nav__item" href="/opleidingen">Opleidingen</a>
-            <a class="nav__item" href="/over-ons">Over ons</a>
-            <a class="nav__item" href="/veelgestelde-vragen">FAQ</a>
-            <a class="nav__item nav__item--active" href="/login">Inloggen</a>
-            <a class="nav__btn" href="/register">Aanmelden</a>
-          </nav>
+@section('title', 'Inloggen')
+@section('meta_description', 'Log in op het Techniek College Keuzedeel Portaal')
 
-          <button class="mobile-menu" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </header>
-
-      <!-- Main Login Area -->
-      <main class="login-wrapper">
-        <div class="login-wrapper__bg"></div>
-        
-        <div class="login-container">
+@section('content')
+<div class="login-page">
+    <div class="login-container">
           <!-- Left Side - Info -->
           <div class="login-info">
             <span class="login-info__badge">
@@ -175,72 +132,7 @@
               <span>Nog geen account?</span>
               <a href="/register" class="login-card__footer-link">Registreer je hier</a>
             </div>
-          </div>
         </div>
-      </main>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer__container">
-          <div class="footer__top">
-            <div class="footer__brand">
-              <span class="footer__logo">Keuzedeel Portaal</span>
-              <p class="footer__tagline">Je toekomst begint hier</p>
-              <p class="footer__description">Het online platform voor MBO-studenten om keuzedelen te beheren en studievoortgang te volgen.</p>
-            </div>
-            
-            <div class="footer__section">
-              <h4 class="footer__heading">Voor Studenten</h4>
-              <ul class="footer__list">
-                <li><a href="#">Mijn Keuzedelen</a></li>
-                <li><a href="#">Opdrachten</a></li>
-                <li><a href="#">Voortgang</a></li>
-              </ul>
-            </div>
-            
-            <div class="footer__section">
-              <h4 class="footer__heading">Informatie</h4>
-              <ul class="footer__list">
-                <li><a href="/over-ons">Over Ons</a></li>
-                <li><a href="/opleidingen">Opleidingen</a></li>
-                <li><a href="/nieuwsberichten">Nieuws</a></li>
-                <li><a href="/veelgestelde-vragen">FAQ</a></li>
-              </ul>
-            </div>
-            
-            <div class="footer__section">
-              <h4 class="footer__heading">Contact</h4>
-              <ul class="footer__list">
-                <li><a href="#">Helpdesk</a></li>
-                <li><a href="#">ICT Support</a></li>
-                <li><a href="mailto:info@school.nl">info@school.nl</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="footer__bottom">
-            <div class="footer__links">
-              <a href="/privacy">Privacy</a>
-              <a href="/voorwaarden">Voorwaarden</a>
-              <a href="/cookiebeleid">Cookies</a>
-              <a href="/toegankelijkheid">Toegankelijkheid</a>
-            </div>
-            <p class="footer__copy">© 2025 Keuzedeel Portaal. Alle rechten voorbehouden.</p>
-          </div>
-        </div>
-      </footer>
     </div>
-
-    <script>
-      // Header scroll effect
-      const header = document.querySelector('.header');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          header.classList.add('header--scrolled');
-        } else {
-          header.classList.remove('header--scrolled');
-        }
-      });
-    </script>
-  </body>
-</html>
+</div>
+@endsection

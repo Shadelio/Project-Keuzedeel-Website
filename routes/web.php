@@ -14,6 +14,11 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
+Route::post('/register', function () {
+    // Registratie logica komt hier
+    return redirect('/login')->with('success', 'Registratie succesvol!');
+})->name('register.submit');
+
 Route::get('/opleidingen', function () {
     return view('opleidingen');
 })->name('opleidingen');
