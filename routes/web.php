@@ -54,3 +54,7 @@ Route::get('/cookiebeleid', function () {
 Route::get('/toegankelijkheid', function () {
     return view('toegankelijkheid');
 })->name('toegankelijkheid');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
