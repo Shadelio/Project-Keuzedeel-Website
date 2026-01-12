@@ -126,9 +126,6 @@
                     <h3>Contact & Support</h3>
                     <div class="footer__links">
                         <a href="/contact">Contact</a>
-                        <a href="#">Helpdesk</a>
-                        <a href="#">ICT Support</a>
-                        <a href="mailto:info@techniekcollege.nl">info@techniekcollege.nl</a>
                     </div>
                 </div>
             </div>
