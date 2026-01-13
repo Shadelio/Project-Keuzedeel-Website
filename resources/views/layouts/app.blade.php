@@ -106,8 +106,16 @@
                         <a href="/opleidingen">Opleidingen</a>
                         <a href="/login">Mijn Keuzedelen</a>
                         <a href="/login">Opdrachten</a>
-                        <a href="/login">Voortgang</a>
-                        <a href="/login">Rooster</a>
+                    </div>
+                </div>
+                
+                <div class="footer__section">
+                    <h3>Contact</h3>
+                    <div class="footer__contact">
+                        <p>Schieweg 91</p>
+                        <p>3038 AJ Rotterdam</p>
+                        <p>Tel: 010 - 123 4567</p>
+                        <p>info@techniekcollege.nl</p>
                     </div>
                 </div>
                 

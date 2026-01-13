@@ -612,6 +612,18 @@ a:hover {
   transform: translateX(5px);
 }
 
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__contact p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;
