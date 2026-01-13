@@ -36,9 +36,8 @@
                 <nav class="nav">
                     <a class="nav__link @if(request()->is('/')) nav__link--active @endif" href="/">Home</a>
                     <a class="nav__link @if(request()->is('opleidingen')) nav__link--active @endif" href="/opleidingen">Opleidingen</a>
-                    <a class="nav__link @if(request()->is('over-ons')) nav__link--active @endif" href="/over-ons">Over Ons</a>
-                    <a class="nav__link @if(request()->is('nieuwsberichten')) nav__link--active @endif" href="/nieuwsberichten">Nieuws</a>
-                    <a class="nav__link @if(request()->is('contact')) nav__link--active @endif" href="/contact">Contact</a>
+                    <a class="nav__link @if(request()->is('keuzedelen')) nav__link--active @endif" href="/keuzedelen">Keuzedelen</a>
+                    <a class="nav__link @if(request()->is('mijn-keuzedelen')) nav__link--active @endif" href="/login">Mijn Keuzedelen</a>
                     <a class="nav__link @if(request()->is('login')) nav__link--active @endif" href="/login">Inloggen</a>
                     <a class="nav__cta" href="/register">Aanmelden</a>
                 </nav>
@@ -58,9 +57,8 @@
         <div class="mobile-nav__content">
             <a class="mobile-nav__link" href="/">Home</a>
             <a class="mobile-nav__link" href="/opleidingen">Opleidingen</a>
-            <a class="mobile-nav__link" href="/over-ons">Over Ons</a>
-            <a class="mobile-nav__link" href="/nieuwsberichten">Nieuws</a>
-            <a class="mobile-nav__link" href="/contact">Contact</a>
+            <a class="mobile-nav__link" href="/keuzedelen">Keuzedelen</a>
+            <a class="mobile-nav__link" href="/login">Mijn Keuzedelen</a>
             <a class="mobile-nav__link" href="/login">Inloggen</a>
             <a class="mobile-nav__cta" href="/register">Aanmelden</a>
         </div>
@@ -105,6 +103,7 @@
                 <div class="footer__section">
                     <h3>Voor Studenten</h3>
                     <div class="footer__links">
+                        <a href="/opleidingen">Opleidingen</a>
                         <a href="/login">Mijn Keuzedelen</a>
                         <a href="/login">Opdrachten</a>
                         <a href="/login">Voortgang</a>
@@ -112,22 +111,6 @@
                     </div>
                 </div>
                 
-                <div class="footer__section">
-                    <h3>Informatie</h3>
-                    <div class="footer__links">
-                        <a href="/over-ons">Over Ons</a>
-                        <a href="/opleidingen">Opleidingen</a>
-                        <a href="/nieuwsberichten">Nieuwsberichten</a>
-                        <a href="/veelgestelde-vragen">Veelgestelde Vragen</a>
-                    </div>
-                </div>
-                
-                <div class="footer__section">
-                    <h3>Contact & Support</h3>
-                    <div class="footer__links">
-                        <a href="/contact">Contact</a>
-                    </div>
-                </div>
             </div>
             
             <div class="footer__bottom">
@@ -147,9 +130,9 @@
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 20px rgba(0, 51, 102, 0.15)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
             } else {
-                header.style.boxShadow = '0 2px 20px rgba(0, 51, 102, 0.08)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
             }
         });
 

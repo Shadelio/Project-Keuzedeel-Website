@@ -1,0 +1,1007 @@
+/* =============================================
+   Techniek College Rotterdam - Official Style
+   Based on techniekcollegerotterdam.nl
+   ============================================= */
+
+:root {
+  --tcr-black: #000000;
+  --tcr-dark: #1A1A1A;
+  --tcr-dark-gray: #2D2D2D;
+  --tcr-gray: #4A4A4A;
+  --tcr-light-gray: #F5F5F5;
+  --tcr-white: #FFFFFF;
+  --tcr-gold: #C9A227;
+  --tcr-gold-light: #E6B800;
+  --tcr-gold-bright: #FFD700;
+  --tcr-text: #1A1A1A;
+  --tcr-text-light: #666666;
+  --tcr-text-white: #FFFFFF;
+  --tcr-border: #E0E0E0;
+  --tcr-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --tcr-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+  --tcr-radius: 8px;
+  --tcr-radius-lg: 16px;
+  --tcr-radius-full: 50px;
+  --tcr-transition: all 0.3s ease;
+  --tcr-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--tcr-font);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tcr-text);
+  background: var(--tcr-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   Header - TCCR Style (Black with gold accent)
+   ============================================= */
+.tcr-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--tcr-black);
+  border-bottom: 3px solid var(--tcr-gold);
+}
+
+.tcr-header__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.tcr-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.tcr-logo__text {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--tcr-white);
+  letter-spacing: -0.02em;
+}
+
+.tcr-logo__text strong {
+  font-weight: 700;
+  color: var(--tcr-gold);
+}
+
+/* Navigation */
+.tcr-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tcr-nav__link {
+  color: var(--tcr-white);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: var(--tcr-radius);
+  transition: var(--tcr-transition);
+}
+
+.tcr-nav__link:hover {
+  color: var(--tcr-gold);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Buttons - TCCR Style */
+.tcr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--tcr-radius-full);
+  border: none;
+  cursor: pointer;
+  transition: var(--tcr-transition);
+}
+
+.tcr-btn--gold {
+  background: var(--tcr-gold);
+  color: var(--tcr-black);
+}
+
+.tcr-btn--gold:hover {
+  background: var(--tcr-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
+}
+
+.tcr-btn--outline {
+  background: transparent;
+  color: var(--tcr-white);
+  border: 2px solid var(--tcr-white);
+}
+
+.tcr-btn--outline:hover {
+  background: var(--tcr-white);
+  color: var(--tcr-black);
+}
+
+.tcr-btn--dark {
+  background: var(--tcr-black);
+  color: var(--tcr-white);
+}
+
+.tcr-btn--dark:hover {
+  background: var(--tcr-dark);
+}
+
+.tcr-btn--full {
+  width: 100%;
+}
+
+.tcr-btn--lg {
+  padding: 16px 36px;
+  font-size: 17px;
+}
+
+/* Mobile Toggle */
+.tcr-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tcr-mobile-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--tcr-white);
+  border-radius: 2px;
+  transition: var(--tcr-transition);
+}
+
+.tcr-mobile-toggle--open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.tcr-mobile-toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.tcr-mobile-toggle--open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Navigation */
+.tcr-mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--tcr-transition);
+}
+
+.tcr-mobile-nav--open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tcr-mobile-nav__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.tcr-mobile-nav__content {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 320px;
+  height: 100%;
+  background: var(--tcr-black);
+  padding: 100px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: right 0.3s ease;
+}
+
+.tcr-mobile-nav--open .tcr-mobile-nav__content {
+  right: 0;
+}
+
+.tcr-mobile-nav__link {
+  color: var(--tcr-white);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 16px;
+  border-radius: var(--tcr-radius);
+  transition: var(--tcr-transition);
+}
+
+.tcr-mobile-nav__link:hover {
+  color: var(--tcr-gold);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =============================================
+   Main Content
+   ============================================= */
+.tcr-main {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+}
+
+/* =============================================
+   Hero Section - TCCR Style
+   ============================================= */
+.tcr-hero {
+  position: relative;
+  min-height: 600px;
+  background: var(--tcr-black);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.tcr-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--tcr-black) 0%, var(--tcr-dark) 100%);
+}
+
+.tcr-hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.tcr-hero__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.tcr-hero__content {
+  color: var(--tcr-white);
+}
+
+.tcr-hero__badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--tcr-radius-full);
+  color: var(--tcr-gold);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.tcr-hero__title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.tcr-hero__title span {
+  color: var(--tcr-gold);
+}
+
+.tcr-hero__text {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 500px;
+}
+
+.tcr-hero__buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tcr-hero__image {
+  position: relative;
+}
+
+.tcr-hero__image-box {
+  background: linear-gradient(135deg, var(--tcr-gold) 0%, var(--tcr-gold-light) 100%);
+  border-radius: var(--tcr-radius-lg);
+  padding: 40px;
+  text-align: center;
+}
+
+.tcr-hero__image-box h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--tcr-black);
+  margin-bottom: 16px;
+}
+
+.tcr-hero__image-box p {
+  color: var(--tcr-dark);
+  margin-bottom: 24px;
+}
+
+/* =============================================
+   Section Styles
+   ============================================= */
+.tcr-section {
+  padding: 80px 24px;
+}
+
+.tcr-section--dark {
+  background: var(--tcr-black);
+  color: var(--tcr-white);
+}
+
+.tcr-section--gray {
+  background: var(--tcr-light-gray);
+}
+
+.tcr-section__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tcr-section__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.tcr-section__badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(201, 162, 39, 0.15);
+  border-radius: var(--tcr-radius-full);
+  color: var(--tcr-gold);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.tcr-section__title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.tcr-section__title span {
+  color: var(--tcr-gold);
+}
+
+.tcr-section__text {
+  font-size: 17px;
+  color: var(--tcr-text-light);
+  line-height: 1.7;
+}
+
+.tcr-section--dark .tcr-section__text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =============================================
+   Cards - TCCR Style
+   ============================================= */
+.tcr-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.tcr-card {
+  background: var(--tcr-white);
+  border-radius: var(--tcr-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--tcr-shadow);
+  transition: var(--tcr-transition);
+  border: 1px solid var(--tcr-border);
+}
+
+.tcr-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--tcr-shadow-lg);
+}
+
+.tcr-card__image {
+  height: 200px;
+  background: linear-gradient(135deg, var(--tcr-black) 0%, var(--tcr-dark-gray) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tcr-card__image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--tcr-gold);
+}
+
+.tcr-card__image svg {
+  width: 64px;
+  height: 64px;
+  color: var(--tcr-gold);
+  opacity: 0.5;
+}
+
+.tcr-card__content {
+  padding: 24px;
+}
+
+.tcr-card__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(201, 162, 39, 0.1);
+  border-radius: var(--tcr-radius-full);
+  color: var(--tcr-gold);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tcr-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--tcr-text);
+  margin-bottom: 12px;
+}
+
+.tcr-card__text {
+  font-size: 15px;
+  color: var(--tcr-text-light);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.tcr-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--tcr-gold);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--tcr-transition);
+}
+
+.tcr-card__link:hover {
+  gap: 12px;
+}
+
+.tcr-card__link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =============================================
+   Login Page - TCCR Style
+   ============================================= */
+.tcr-login {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  background: var(--tcr-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.tcr-login__bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 800px 600px at 30% 30%, rgba(201, 162, 39, 0.1), transparent),
+    radial-gradient(ellipse 600px 400px at 70% 70%, rgba(201, 162, 39, 0.05), transparent);
+}
+
+.tcr-login__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 24px;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 80px;
+  align-items: center;
+}
+
+.tcr-login__info {
+  color: var(--tcr-white);
+}
+
+.tcr-login__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--tcr-radius-full);
+  color: var(--tcr-gold);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.tcr-login__badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tcr-login__title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+}
+
+.tcr-login__title span {
+  color: var(--tcr-gold);
+}
+
+.tcr-login__text {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.tcr-login__features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tcr-login__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.tcr-login__feature-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--tcr-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tcr-login__feature-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--tcr-gold);
+}
+
+.tcr-login__feature h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tcr-login__feature p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Login Card */
+.tcr-login__card {
+  background: var(--tcr-white);
+  border-radius: var(--tcr-radius-lg);
+  padding: 40px;
+  box-shadow: var(--tcr-shadow-lg);
+}
+
+.tcr-login__card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.tcr-login__card-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(201, 162, 39, 0.1);
+  border-radius: var(--tcr-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.tcr-login__card-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--tcr-gold);
+}
+
+.tcr-login__card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--tcr-text);
+  margin-bottom: 8px;
+}
+
+.tcr-login__card-subtitle {
+  font-size: 15px;
+  color: var(--tcr-text-light);
+}
+
+/* Form Styles */
+.tcr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tcr-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tcr-form__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tcr-text);
+}
+
+.tcr-form__label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tcr-form__link {
+  font-size: 13px;
+  color: var(--tcr-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tcr-form__link:hover {
+  text-decoration: underline;
+}
+
+.tcr-form__input-wrap {
+  position: relative;
+}
+
+.tcr-form__icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--tcr-text-light);
+}
+
+.tcr-form__input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px 0 48px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--tcr-text);
+  background: var(--tcr-light-gray);
+  border: 2px solid transparent;
+  border-radius: var(--tcr-radius);
+  transition: var(--tcr-transition);
+}
+
+.tcr-form__input::placeholder {
+  color: var(--tcr-text-light);
+}
+
+.tcr-form__input:focus {
+  outline: none;
+  border-color: var(--tcr-gold);
+  background: var(--tcr-white);
+}
+
+.tcr-form__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--tcr-text-light);
+}
+
+.tcr-form__checkbox input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--tcr-gold);
+}
+
+.tcr-form__divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--tcr-text-light);
+  font-size: 13px;
+}
+
+.tcr-form__divider::before,
+.tcr-form__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--tcr-border);
+}
+
+.tcr-login__card-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--tcr-border);
+  font-size: 15px;
+  color: var(--tcr-text-light);
+}
+
+.tcr-login__card-footer a {
+  color: var(--tcr-gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tcr-login__card-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =============================================
+   Footer - TCCR Style
+   ============================================= */
+.tcr-footer {
+  background: var(--tcr-black);
+  color: var(--tcr-white);
+  padding: 60px 0 0;
+}
+
+.tcr-footer__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tcr-footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tcr-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tcr-footer__logo {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--tcr-white);
+}
+
+.tcr-footer__logo strong {
+  font-weight: 700;
+  color: var(--tcr-gold);
+}
+
+.tcr-footer__tagline {
+  font-size: 16px;
+  color: var(--tcr-gold);
+  font-weight: 600;
+}
+
+.tcr-footer__desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.tcr-footer__links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.tcr-footer__col h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tcr-white);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tcr-footer__col a {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: var(--tcr-transition);
+}
+
+.tcr-footer__col a:hover {
+  color: var(--tcr-gold);
+}
+
+.tcr-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tcr-footer__legal {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.tcr-footer__legal a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: var(--tcr-transition);
+}
+
+.tcr-footer__legal a:hover {
+  color: var(--tcr-gold);
+}
+
+.tcr-footer__copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* =============================================
+   Responsive Design
+   ============================================= */
+@media (max-width: 1024px) {
+  .tcr-hero__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .tcr-hero__text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .tcr-hero__buttons {
+    justify-content: center;
+  }
+  
+  .tcr-hero__image {
+    display: none;
+  }
+  
+  .tcr-login__container {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .tcr-login__info {
+    text-align: center;
+  }
+  
+  .tcr-login__features {
+    display: none;
+  }
+  
+  .tcr-footer__top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .tcr-footer__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tcr-nav {
+    display: none;
+  }
+  
+  .tcr-mobile-toggle {
+    display: flex;
+  }
+  
+  .tcr-header__container {
+    height: 70px;
+  }
+  
+  .tcr-main {
+    margin-top: 70px;
+  }
+  
+  .tcr-section {
+    padding: 60px 24px;
+  }
+  
+  .tcr-footer__links {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .tcr-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .tcr-footer__legal {
+    justify-content: center;
+  }
+}
+
+/* =============================================
+   Utility Classes
+   ============================================= */
+.text-center { text-align: center; }
+.text-gold { color: var(--tcr-gold); }
+.bg-black { background: var(--tcr-black); }
+.bg-gray { background: var(--tcr-light-gray); }

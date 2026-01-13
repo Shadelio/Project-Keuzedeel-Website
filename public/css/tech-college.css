@@ -1,28 +1,28 @@
 /* Techniek College - Modern Professional Design System */
 
 :root {
-  /* Brand Colors - TCCR Official Gold Theme */
-  --primary-gold: #C9A227;
-  --primary-dark: #1A1A1A;
-  --primary-light: #E6B800;
-  --accent-gold: #FFD700;
-  --dark-bg: #0D0D0D;
+  /* Brand Colors - TCCR Official Theme */
+  --primary-gold: #F2B705;
+  --primary-dark: #000000;
+  --primary-light: #F2B705;
+  --accent-gold: #F2B705;
+  --accent-orange: #E85D04;
+  --dark-bg: #2B2B2B;
   --darker-bg: #000000;
   --light-gray: #F5F5F5;
   --medium-gray: #E0E0E0;
-  --text-dark: #1A1A1A;
-  --text-light: #666666;
+  --text-dark: #000000;
+  --text-light: #2B2B2B;
   --success-green: #28A745;
-  --warning-amber: #FFC107;
+  --warning-amber: #F2B705;
   --danger-red: #DC3545;
   --white: #FFFFFF;
   
   /* Legacy aliases for compatibility */
-  --primary-blue: #1A1A1A;
-  --tech-cyan: #C9A227;
-  --accent-orange: #E6B800;
-  --dark-navy: #0D0D0D;
-  --primary-green: #C9A227;
+  --primary-blue: #000000;
+  --tech-cyan: #F2B705;
+  --dark-navy: #2B2B2B;
+  --primary-green: #F2B705;
   
   /* Spacing */
   --space-xs: 0.5rem;

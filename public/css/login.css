@@ -6,30 +6,30 @@
 :root {
   --bg: #fafbfc;
   --bg-alt: #ffffff;
-  --bg-dark: #0D0D0D;
+  --bg-dark: #000000;
   --surface: #ffffff;
-  --surface-hover: #f5f5f5;
-  --text: #1A1A1A;
-  --text-muted: #666666;
-  --text-subtle: #888888;
+  --surface-hover: #F5F5F5;
+  --text: #000000;
+  --text-muted: #2B2B2B;
+  --text-subtle: #666666;
   --text-light: #ffffff;
   --border: #e0e0e0;
   --border-hover: #cccccc;
-  --primary: #C9A227;
-  --primary-light: #E6B800;
-  --primary-dark: #1A1A1A;
+  --primary: #F2B705;
+  --primary-light: #F2B705;
+  --primary-dark: #000000;
   --primary-darker: #000000;
-  --accent: #FFD700;
-  --ring: rgba(201, 162, 39, 0.25);
-  --gradient-primary: linear-gradient(135deg, #C9A227 0%, #E6B800 50%, #FFD700 100%);
-  --gradient-dark: linear-gradient(180deg, #000000 0%, #1A1A1A 100%);
-  --gradient-hero: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
+  --accent: #E85D04;
+  --ring: rgba(242, 183, 5, 0.25);
+  --gradient-primary: linear-gradient(135deg, #F2B705 0%, #E85D04 100%);
+  --gradient-dark: linear-gradient(180deg, #000000 0%, #2B2B2B 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(43, 43, 43, 0.9) 100%);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-gold: 0 10px 40px -10px rgba(201, 162, 39, 0.3);
+  --shadow-gold: 0 10px 40px -10px rgba(242, 183, 5, 0.3);
   --radius-sm: 6px;
   --radius: 12px;
   --radius-lg: 16px;
@@ -175,7 +175,7 @@ body {
 
 .nav__item--active {
   color: var(--primary-light);
-  background: rgba(201, 162, 39, 0.15);
+  background: rgba(242, 183, 5, 0.15);
 }
 
 .nav__btn {
@@ -193,7 +193,7 @@ body {
 
 .nav__btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 40px -10px rgba(201, 162, 39, 0.4);
+  box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.4);
 }
 
 .mobile-menu {
@@ -231,9 +231,9 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse 800px 600px at 30% 20%, rgba(201, 162, 39, 0.15), transparent),
-    radial-gradient(ellipse 600px 400px at 70% 80%, rgba(230, 184, 0, 0.1), transparent),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    radial-gradient(ellipse 800px 600px at 30% 20%, rgba(242, 183, 5, 0.15), transparent),
+    radial-gradient(ellipse 600px 400px at 70% 80%, rgba(232, 93, 4, 0.1), transparent),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F2B705' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 
@@ -258,14 +258,14 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(201, 162, 39, 0.15);
+  background: rgba(242, 183, 5, 0.15);
   color: var(--primary-light);
   font-size: 13px;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: var(--radius-full);
   margin-bottom: 24px;
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  border: 1px solid rgba(242, 183, 5, 0.3);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -314,12 +314,12 @@ body {
   width: 48px;
   height: 48px;
   min-width: 48px;
-  background: rgba(201, 162, 39, 0.15);
+  background: rgba(242, 183, 5, 0.15);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(201, 162, 39, 0.3);
+  border: 1px solid rgba(242, 183, 5, 0.3);
 }
 
 .login-feature__icon svg {
@@ -369,7 +369,7 @@ body {
 .login-card__icon {
   width: 72px;
   height: 72px;
-  background: rgba(201, 162, 39, 0.1);
+  background: rgba(242, 183, 5, 0.1);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
@@ -551,7 +551,7 @@ body {
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 40px -10px rgba(201, 162, 39, 0.5);
+  box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.5);
 }
 
 .btn--primary:active {

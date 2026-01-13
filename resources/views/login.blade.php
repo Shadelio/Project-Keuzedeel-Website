@@ -3,6 +3,10 @@
 @section('title', 'Inloggen')
 @section('meta_description', 'Log in op het Techniek College Keuzedeel Portaal')
 
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
+
 @section('content')
 <div class="login-page">
     <div class="login-container">
