@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 })->name('home');
 
 Route::get('/login', function () {
@@ -22,6 +22,14 @@ Route::post('/register', function () {
 Route::get('/opleidingen', function () {
     return view('opleidingen');
 })->name('opleidingen');
+
+Route::get('/keuzedelen', function () {
+    return view('keuzedelen');
+})->name('keuzedelen');
+
+Route::get('/mijn-keuzedelen', function () {
+    return view('mijn-keuzedelen');
+})->name('mijn-keuzedelen');
 
 Route::get('/over-de-school', function () {
     return view('over-de-school');

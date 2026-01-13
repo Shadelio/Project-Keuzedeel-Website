@@ -37,7 +37,7 @@
                     <a class="nav__link @if(request()->is('/')) nav__link--active @endif" href="/">Home</a>
                     <a class="nav__link @if(request()->is('opleidingen')) nav__link--active @endif" href="/opleidingen">Opleidingen</a>
                     <a class="nav__link @if(request()->is('keuzedelen')) nav__link--active @endif" href="/keuzedelen">Keuzedelen</a>
-                    <a class="nav__link @if(request()->is('mijn-keuzedelen')) nav__link--active @endif" href="/login">Mijn Keuzedelen</a>
+                    <a class="nav__link @if(request()->is('mijn-keuzedelen')) nav__link--active @endif" href="/mijn-keuzedelen">Mijn Keuzedelen</a>
                     <a class="nav__link @if(request()->is('login')) nav__link--active @endif" href="/login">Inloggen</a>
                     <a class="nav__cta" href="/register">Aanmelden</a>
                 </nav>
@@ -58,7 +58,7 @@
             <a class="mobile-nav__link" href="/">Home</a>
             <a class="mobile-nav__link" href="/opleidingen">Opleidingen</a>
             <a class="mobile-nav__link" href="/keuzedelen">Keuzedelen</a>
-            <a class="mobile-nav__link" href="/login">Mijn Keuzedelen</a>
+            <a class="mobile-nav__link" href="/mijn-keuzedelen">Mijn Keuzedelen</a>
             <a class="mobile-nav__link" href="/login">Inloggen</a>
             <a class="mobile-nav__cta" href="/register">Aanmelden</a>
         </div>
