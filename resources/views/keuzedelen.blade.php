@@ -18,8 +18,8 @@
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse 800px 600px at 30% 20%, rgba(242, 183, 5, 0.15), transparent),
-        radial-gradient(ellipse 600px 400px at 70% 80%, rgba(232, 93, 4, 0.1), transparent);
+        radial-gradient(ellipse 800px 600px at 30% 20%, rgba(200, 212, 0, 0.15), transparent),
+        radial-gradient(ellipse 600px 400px at 70% 80%, rgba(200, 212, 0, 0.1), transparent);
     pointer-events: none;
 }
 
@@ -35,14 +35,14 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(242, 183, 5, 0.15);
+    background: rgba(200, 212, 0, 0.15);
     color: var(--primary);
     font-size: 13px;
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 9999px;
     margin-bottom: 24px;
-    border: 1px solid rgba(242, 183, 5, 0.3);
+    border: 1px solid rgba(200, 212, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -69,7 +69,7 @@
     color: rgba(255,255,255,0.8);
     max-width: 600px;
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 24px;
 }
 
 .keuzedelen-hero__stats {
@@ -134,7 +134,7 @@
     background: white;
     border-radius: 16px;
     padding: 28px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(200, 212, 0, 0.1);
     transition: all 0.3s ease;
     text-decoration: none;
     display: block;
@@ -143,7 +143,7 @@
 
 .keuzedeel-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px -15px rgba(200, 212, 0, 0.15);
 }
 
 .keuzedeel-card__header {
@@ -191,8 +191,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(242, 183, 5, 0.1);
-    color: #b8860b;
+    background: rgba(200, 212, 0, 0.1);
+    color: #1C3A3A;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 4px 10px;
@@ -203,7 +203,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(200, 212, 0, 0.05);
     color: var(--text-muted);
     font-size: 0.75rem;
     font-weight: 600;
@@ -328,13 +328,13 @@
 .keuzedelen-info__visual-icon {
     width: 120px;
     height: 120px;
-    background: rgba(242, 183, 5, 0.15);
+    background: rgba(200, 212, 0, 0.15);
     border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 24px;
-    border: 1px solid rgba(242, 183, 5, 0.3);
+    border: 1px solid rgba(200, 212, 0, 0.3);
 }
 
 .keuzedelen-info__visual-icon svg {
@@ -398,12 +398,12 @@
     border-radius: 9999px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 40px -10px rgba(242, 183, 5, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(200, 212, 0, 0.3);
 }
 
 .keuzedelen-cta__btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.5);
+    box-shadow: 0 14px 40px -10px rgba(200, 212, 0, 0.5);
 }
 
 .keuzedelen-cta__btn svg {
@@ -507,7 +507,7 @@
                 <div class="keuzedeel-card__header">
                     <div class="keuzedeel-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+                            <path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V12zm-12 0h.008v.008H6V12z"/>
                         </svg>
                     </div>
                     <div class="keuzedeel-card__info">
@@ -540,7 +540,7 @@
                     <div class="keuzedeel-card__icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/>
-                            <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"/>
+                            <path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5zm-12 0h.008v.008H6V10.5z"/>
                         </svg>
                     </div>
                     <div class="keuzedeel-card__info">

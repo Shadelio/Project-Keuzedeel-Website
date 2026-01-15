@@ -1,30 +1,36 @@
 /* Techniek College - Modern Professional Design System */
 
 :root {
-  /* Brand Colors - TCCR Official Theme */
-  --primary-gold: #F2B705;
-  --primary-dark: #000000;
-  --primary-light: #F2B705;
-  --accent-gold: #F2B705;
-  --accent-orange: #E85D04;
-  --dark-bg: #2B2B2B;
-  --darker-bg: #000000;
-  --light-gray: #F5F5F5;
+  /* Primary Colors - TCR Official */
+  --primary: #C8D400;  /* Lime groen voor buttons */
+  --primary-light: #D4E000;
+  --primary-dark: #A8B400;
+  --accent: #F9A825;  /* Goud voor tekst */
+  --accent-light: #FFB300;
+  --accent-dark: #E68900;
+  
+  /* Background Colors */
+  --dark: #1C3A3A;  /* Donkergroen/teal achtergrond */
+  --dark-light: #2C4A4A;
+  --dark-lighter: #3C5A5A;
+  --light: #FFFFFF;
+  --light-gray: #F7F7F7;
   --medium-gray: #E0E0E0;
-  --text-dark: #000000;
-  --text-light: #2B2B2B;
-  --success-green: #28A745;
-  --warning-amber: #F2B705;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #C8D400 0%, #D4E000 100%);
+  --gradient-dark: linear-gradient(135deg, #1C3A3A 0%, #0F2A2A 100%);
+  --gradient-accent: linear-gradient(135deg, #F9A825 0%, #FFB300 100%);
+  --gradient-gold-text: linear-gradient(135deg, #F9A825 0%, #E68900 100%);
   --danger-red: #DC3545;
   --white: #FFFFFF;
-  
   /* Legacy aliases for compatibility */
-  --primary-blue: #000000;
-  --tech-cyan: #F2B705;
-  --dark-navy: #2B2B2B;
-  --primary-green: #F2B705;
-  
-  /* Spacing */
+  --tcr-primary: #C8D400;
+  --tcr-primary-light: #D4E000;
+  --tcr-primary-dark: #A8B400;
+  --tcr-secondary: #1C3A3A;
+  --tcr-secondary-light: #2C4A4A;
+  --tcr-secondary-dark: #0F2A2A;
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;

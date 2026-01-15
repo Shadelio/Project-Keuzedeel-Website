@@ -18,8 +18,8 @@
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse 800px 600px at 30% 20%, rgba(242, 183, 5, 0.15), transparent),
-        radial-gradient(ellipse 600px 400px at 70% 80%, rgba(232, 93, 4, 0.1), transparent);
+        radial-gradient(ellipse 800px 600px at 30% 20%, rgba(200, 212, 0, 0.15), transparent),
+        radial-gradient(ellipse 600px 400px at 70% 80%, rgba(200, 212, 0, 0.1), transparent);
     pointer-events: none;
 }
 
@@ -35,14 +35,14 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(242, 183, 5, 0.15);
-    color: var(--primary);
+    background: rgba(200, 212, 0, 0.15);
+    color: #C8D400;
     font-size: 13px;
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 9999px;
     margin-bottom: 24px;
-    border: 1px solid rgba(242, 183, 5, 0.3);
+    border: 1px solid rgba(200, 212, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -61,7 +61,7 @@
 }
 
 .mijn-keuzedelen-hero__title span {
-    color: var(--primary);
+    color: #C8D400;
 }
 
 .mijn-keuzedelen-hero__text {
@@ -75,7 +75,7 @@
 /* Content Section */
 .mijn-keuzedelen-section {
     padding: 80px 0;
-    background: var(--light-gray);
+    background: #F7F7F7;
     min-height: 400px;
 }
 
@@ -91,13 +91,13 @@
     padding: 80px 24px;
     background: white;
     border-radius: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(200, 212, 0, 0.1);
 }
 
 .mijn-keuzedelen-empty__icon {
     width: 100px;
     height: 100px;
-    background: rgba(242, 183, 5, 0.1);
+    background: rgba(200, 212, 0, 0.1);
     border-radius: 24px;
     display: flex;
     align-items: center;
@@ -108,19 +108,19 @@
 .mijn-keuzedelen-empty__icon svg {
     width: 48px;
     height: 48px;
-    color: var(--primary);
+    color: #C8D400;
 }
 
 .mijn-keuzedelen-empty__title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text);
+    color: #1C3A3A;
     margin: 0 0 12px;
 }
 
 .mijn-keuzedelen-empty__text {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: #666;
     margin: 0 0 32px;
     max-width: 400px;
     margin-left: auto;
@@ -131,7 +131,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--gradient-primary);
+    background: #C8D400;
     color: black;
     font-weight: 600;
     font-size: 1rem;
@@ -139,12 +139,12 @@
     border-radius: 9999px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 40px -10px rgba(242, 183, 5, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(200, 212, 0, 0.3);
 }
 
 .mijn-keuzedelen-empty__btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.5);
+    box-shadow: 0 14px 40px -10px rgba(200, 212, 0, 0.5);
 }
 
 .mijn-keuzedelen-empty__btn svg {
@@ -163,7 +163,7 @@
     background: white;
     border-radius: 16px;
     padding: 28px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(200, 212, 0, 0.1);
     border: 1px solid rgba(0,0,0,0.05);
 }
 
@@ -178,7 +178,7 @@
     width: 56px;
     height: 56px;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: linear-gradient(135deg, #C8D400 0%, #C8D400 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,7 +198,7 @@
 .mijn-keuzedeel-card__title {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text);
+    color: #333;
     margin: 0 0 4px;
 }
 
@@ -219,13 +219,13 @@
 }
 
 .mijn-keuzedeel-card__status--active {
-    background: rgba(40, 167, 69, 0.1);
-    color: #28a745;
+    background: rgba(200, 212, 0, 0.1);
+    color: #C8D400;
 }
 
 .mijn-keuzedeel-card__status--completed {
-    background: rgba(242, 183, 5, 0.1);
-    color: #b8860b;
+    background: rgba(200, 212, 0, 0.1);
+    color: #333;
 }
 
 .mijn-keuzedeel-card__progress {
@@ -236,20 +236,20 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: #666;
     margin-bottom: 8px;
 }
 
 .mijn-keuzedeel-card__progress-bar {
     height: 8px;
-    background: var(--light-gray);
+    background: #F7F7F7;
     border-radius: 4px;
     overflow: hidden;
 }
 
 .mijn-keuzedeel-card__progress-fill {
     height: 100%;
-    background: var(--gradient-primary);
+    background: #C8D400;
     border-radius: 4px;
     transition: width 0.3s ease;
 }
@@ -260,13 +260,13 @@
     padding: 80px 24px;
     background: white;
     border-radius: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(200, 212, 0, 0.1);
 }
 
 .login-required__icon {
     width: 100px;
     height: 100px;
-    background: rgba(242, 183, 5, 0.1);
+    background: rgba(200, 212, 0, 0.1);
     border-radius: 24px;
     display: flex;
     align-items: center;
@@ -277,19 +277,19 @@
 .login-required__icon svg {
     width: 48px;
     height: 48px;
-    color: var(--primary);
+    color: #C8D400;
 }
 
 .login-required__title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text);
+    color: #1C3A3A;
     margin: 0 0 12px;
 }
 
 .login-required__text {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: #666;
     margin: 0 0 32px;
     max-width: 400px;
     margin-left: auto;
@@ -300,7 +300,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--gradient-primary);
+    background: #C8D400;
     color: black;
     font-weight: 600;
     font-size: 1rem;
@@ -308,12 +308,12 @@
     border-radius: 9999px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 40px -10px rgba(242, 183, 5, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(200, 212, 0, 0.3);
 }
 
 .login-required__btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.5);
+    box-shadow: 0 14px 40px -10px rgba(200, 212, 0, 0.5);
 }
 
 .login-required__btn svg {

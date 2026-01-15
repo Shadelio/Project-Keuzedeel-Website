@@ -22,8 +22,8 @@
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse 1000px 800px at 20% 30%, rgba(242, 183, 5, 0.2), transparent),
-        radial-gradient(ellipse 800px 600px at 80% 70%, rgba(232, 93, 4, 0.15), transparent);
+        radial-gradient(ellipse 1000px 800px at 20% 30%, rgba(200, 212, 0, 0.2), transparent),
+        radial-gradient(ellipse 800px 600px at 80% 70%, rgba(200, 212, 0, 0.15), transparent);
     pointer-events: none;
 }
 
@@ -47,14 +47,14 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(242, 183, 5, 0.15);
+    background: rgba(200, 212, 0, 0.15);
     color: var(--primary);
     font-size: 13px;
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 9999px;
     margin-bottom: 24px;
-    border: 1px solid rgba(242, 183, 5, 0.3);
+    border: 1px solid rgba(200, 212, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -73,8 +73,13 @@
 }
 
 .home-hero__title span {
-    color: var(--primary);
-    display: block;
+    background: linear-gradient(135deg, #F9A825 0%, #FFB300 50%, #E68900 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    font-weight: 900;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .home-hero__text {
@@ -105,12 +110,12 @@
 .home-hero__btn--primary {
     background: var(--gradient-primary);
     color: black;
-    box-shadow: 0 10px 40px -10px rgba(242, 183, 5, 0.4);
+    box-shadow: 0 10px 40px -10px rgba(200, 212, 0, 0.4);
 }
 
 .home-hero__btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.6);
+    box-shadow: 0 14px 40px -10px rgba(200, 212, 0, 0.6);
 }
 
 .home-hero__btn--secondary {
@@ -149,9 +154,9 @@
 .home-hero__stat {
     text-align: center;
     padding: 24px;
-    background: rgba(242, 183, 5, 0.1);
+    background: rgba(200, 212, 0, 0.1);
     border-radius: 16px;
-    border: 1px solid rgba(242, 183, 5, 0.2);
+    border: 1px solid rgba(200, 212, 0, 0.2);
 }
 
 .home-hero__stat-number {
@@ -188,8 +193,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(242, 183, 5, 0.1);
-    color: #b8860b;
+    background: rgba(200, 212, 0, 0.1);
+    color: #1C3A3A;
     font-size: 13px;
     font-weight: 600;
     padding: 8px 16px;
@@ -227,14 +232,14 @@
     background: white;
     border-radius: 20px;
     padding: 36px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(200, 212, 0, 0.1);
     transition: all 0.3s ease;
     border: 1px solid rgba(0,0,0,0.05);
 }
 
 .home-feature:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px -15px rgba(200, 212, 0, 0.15);
 }
 
 .home-feature__icon {
@@ -268,126 +273,6 @@
     margin: 0;
 }
 
-/* Opleidingen Section */
-.home-opleidingen {
-    padding: 100px 0;
-    background: white;
-}
-
-.home-opleidingen__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-.home-opleidingen__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 48px;
-}
-
-.home-opleidingen__header-content {
-    max-width: 500px;
-}
-
-.home-opleidingen__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(242, 183, 5, 0.1);
-    color: #b8860b;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 9999px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.home-opleidingen__title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0 0 12px;
-}
-
-.home-opleidingen__subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin: 0;
-}
-
-.home-opleidingen__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--primary);
-    font-weight: 600;
-    text-decoration: none;
-    transition: gap 0.2s ease;
-}
-
-.home-opleidingen__link:hover {
-    gap: 12px;
-}
-
-.home-opleidingen__link svg {
-    width: 20px;
-    height: 20px;
-}
-
-.home-opleidingen__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.home-opleiding {
-    background: var(--light-gray);
-    border-radius: 16px;
-    padding: 28px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: block;
-}
-
-.home-opleiding:hover {
-    background: white;
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-    transform: translateY(-4px);
-}
-
-.home-opleiding__icon {
-    width: 52px;
-    height: 52px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.home-opleiding__icon svg {
-    width: 26px;
-    height: 26px;
-    stroke: white;
-}
-
-.home-opleiding__title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text);
-    margin: 0 0 8px;
-}
-
-.home-opleiding__niveau {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin: 0;
-}
 
 /* CTA Section */
 .home-cta {
@@ -402,8 +287,8 @@
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse 600px 400px at 20% 50%, rgba(242, 183, 5, 0.15), transparent),
-        radial-gradient(ellipse 400px 300px at 80% 50%, rgba(232, 93, 4, 0.1), transparent);
+        radial-gradient(ellipse 600px 400px at 20% 50%, rgba(200, 212, 0, 0.15), transparent),
+        radial-gradient(ellipse 400px 300px at 80% 50%, rgba(200, 212, 0, 0.1), transparent);
     pointer-events: none;
 }
 
@@ -457,12 +342,12 @@
 .home-cta__btn--primary {
     background: var(--gradient-primary);
     color: black;
-    box-shadow: 0 10px 40px -10px rgba(242, 183, 5, 0.4);
+    box-shadow: 0 10px 40px -10px rgba(200, 212, 0, 0.4);
 }
 
 .home-cta__btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 40px -10px rgba(242, 183, 5, 0.6);
+    box-shadow: 0 14px 40px -10px rgba(200, 212, 0, 0.6);
 }
 
 .home-cta__btn--secondary {
@@ -494,10 +379,6 @@
     .home-features__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .home-opleidingen__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (max-width: 768px) {
@@ -517,16 +398,6 @@
     .home-features__grid {
         grid-template-columns: 1fr;
     }
-    
-    .home-opleidingen__header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-    
-    .home-opleidingen__grid {
-        grid-template-columns: 1fr;
-    }
 }
 </style>
 @endsection
@@ -544,19 +415,13 @@
                 Techniek College Rotterdam
             </span>
             <h1 class="home-hero__title">
-                Bouw aan je
-                <span>Technische Toekomst</span>
+                Je toekomst is
+                <span>goud waard</span>
             </h1>
             <p class="home-hero__text">
-                Welkom bij het Keuzedeel Portaal van Techniek College Rotterdam. Ontdek onze opleidingen, kies je keuzedelen en start je carrière in de techniek.
+                Welkom bij het Keuzedeel Portaal van Techniek College Rotterdam. Kies je keuzedelen en start je carrière in de techniek.
             </p>
             <div class="home-hero__buttons">
-                <a href="/opleidingen" class="home-hero__btn home-hero__btn--primary">
-                    Bekijk opleidingen
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                    </svg>
-                </a>
                 <a href="/keuzedelen" class="home-hero__btn home-hero__btn--secondary">
                     Ontdek keuzedelen
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -568,10 +433,6 @@
         <div class="home-hero__visual">
             <div class="home-hero__card">
                 <div class="home-hero__stats">
-                    <div class="home-hero__stat">
-                        <span class="home-hero__stat-number">140+</span>
-                        <span class="home-hero__stat-label">Opleidingen</span>
-                    </div>
                     <div class="home-hero__stat">
                         <span class="home-hero__stat-number">50+</span>
                         <span class="home-hero__stat-label">Keuzedelen</span>
@@ -597,7 +458,7 @@
             <span class="home-features__badge">Waarom TCR</span>
             <h2 class="home-features__title">Waarom kiezen voor <span>Techniek College</span>?</h2>
             <p class="home-features__subtitle">
-                Wij bieden de beste technische opleidingen met moderne faciliteiten en directe connecties met het bedrijfsleven.
+                Wij bieden de beste technische keuzedelen met moderne faciliteiten en directe connecties met het bedrijfsleven.
             </p>
         </div>
         <div class="home-features__grid">
@@ -626,7 +487,7 @@
             <div class="home-feature">
                 <div class="home-feature__icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+                        <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
                     </svg>
                 </div>
                 <h3 class="home-feature__title">Erkende Diploma's</h3>
@@ -638,71 +499,13 @@
     </div>
 </section>
 
-<!-- Opleidingen Section -->
-<section class="home-opleidingen">
-    <div class="home-opleidingen__container">
-        <div class="home-opleidingen__header">
-            <div class="home-opleidingen__header-content">
-                <span class="home-opleidingen__badge">Opleidingen</span>
-                <h2 class="home-opleidingen__title">Populaire Opleidingen</h2>
-                <p class="home-opleidingen__subtitle">Ontdek onze meest gekozen technische opleidingen</p>
-            </div>
-            <a href="/opleidingen" class="home-opleidingen__link">
-                Bekijk alle opleidingen
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                </svg>
-            </a>
-        </div>
-        <div class="home-opleidingen__grid">
-            <a href="/opleidingen" class="home-opleiding">
-                <div class="home-opleiding__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
-                    </svg>
-                </div>
-                <h3 class="home-opleiding__title">Software & Online</h3>
-                <p class="home-opleiding__niveau">Niveau 4</p>
-            </a>
-            <a href="/opleidingen" class="home-opleiding">
-                <div class="home-opleiding__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
-                    </svg>
-                </div>
-                <h3 class="home-opleiding__title">Elektrotechniek</h3>
-                <p class="home-opleiding__niveau">Niveau 3 & 4</p>
-            </a>
-            <a href="/opleidingen" class="home-opleiding">
-                <div class="home-opleiding__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
-                    </svg>
-                </div>
-                <h3 class="home-opleiding__title">Logistiek</h3>
-                <p class="home-opleiding__niveau">Niveau 2, 3 & 4</p>
-            </a>
-            <a href="/opleidingen" class="home-opleiding">
-                <div class="home-opleiding__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/>
-                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                </div>
-                <h3 class="home-opleiding__title">Autotechniek</h3>
-                <p class="home-opleiding__niveau">Niveau 2, 3 & 4</p>
-            </a>
-        </div>
-    </div>
-</section>
-
 <!-- CTA Section -->
 <section class="home-cta">
     <div class="home-cta__container">
         <h2 class="home-cta__title">Klaar om te <span>starten</span>?</h2>
         <p class="home-cta__text">
-            Meld je aan voor een opleiding bij Techniek College Rotterdam en bouw aan je technische toekomst. 
-            Ontdek welke keuzedelen bij jouw opleiding passen.
+            Meld je aan bij Techniek College Rotterdam en bouw aan je technische toekomst. 
+            Ontdek welke keuzedelen het beste bij jou passen.
         </p>
         <div class="home-cta__buttons">
             <a href="/register" class="home-cta__btn home-cta__btn--primary">

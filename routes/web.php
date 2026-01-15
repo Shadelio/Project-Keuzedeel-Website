@@ -19,10 +19,6 @@ Route::post('/register', function () {
     return redirect('/login')->with('success', 'Registratie succesvol!');
 })->name('register.submit');
 
-Route::get('/opleidingen', function () {
-    return view('opleidingen');
-})->name('opleidingen');
-
 Route::get('/keuzedelen', function () {
     return view('keuzedelen');
 })->name('keuzedelen');
