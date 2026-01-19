@@ -99,8 +99,8 @@
               </details>
             </div>
 
-            <a href="/contact" class="btn btn--primary btn--full">
-              <span>Stel je Vraag</span>
+            <a href="/login" class="btn btn--primary btn--full">
+              <span>Log in voor Hulp</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
               </svg>

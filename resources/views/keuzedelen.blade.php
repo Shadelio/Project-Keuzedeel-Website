@@ -96,7 +96,7 @@
 
 /* Notice Bar */
 .notice-bar {
-    background: linear-gradient(135deg, #F9A825 0%, #FFB300 100%);
+    background: linear-gradient(135deg, #16A34A 0%, #22C55E 100%);
     color: white;
     padding: 16px 0;
     text-align: center;

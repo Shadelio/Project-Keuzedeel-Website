@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Mijn Keuzedelen')
+@section('title', 'Mijn Inschrijvingen')
 @section('meta_description', 'Bekijk en beheer je gekozen keuzedelen')
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <style>
-/* Mijn Keuzedelen Page Styles */
+/* Mijn Inschrijvingen Page Styles */
 .mijn-keuzedelen-hero {
     background: var(--gradient-dark);
     padding: 120px 0 60px;
@@ -340,10 +340,10 @@
             Mijn Account
         </span>
         <h1 class="mijn-keuzedelen-hero__title">
-            Mijn <span>Keuzedelen</span>
+            Mijn <span>Inschrijvingen</span>
         </h1>
         <p class="mijn-keuzedelen-hero__text">
-            Bekijk en beheer de keuzedelen die je hebt gekozen voor je opleiding. Volg je voortgang en bekijk je resultaten.
+            Bekijk en beheer je inschrijvingen voor keuzedelen. Volg je voortgang en bekijk je resultaten.
         </p>
     </div>
 </section>
@@ -393,12 +393,12 @@
                             <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
                         </svg>
                     </div>
-                    <h2 class="mijn-keuzedelen-empty__title">Nog geen keuzedelen gekozen</h2>
+                    <h2 class="mijn-keuzedelen-empty__title">Nog geen inschrijvingen</h2>
                     <p class="mijn-keuzedelen-empty__text">
-                        Je hebt nog geen keuzedelen geselecteerd. Bekijk het aanbod en kies de keuzedelen die bij jouw opleiding passen.
+                        Je hebt je nog niet ingeschreven voor keuzedelen. Bekijk het aanbod en schrijf je in voor keuzedelen die bij jouw opleiding passen.
                     </p>
                     <a href="/keuzedelen" class="mijn-keuzedelen-empty__btn">
-                        Bekijk keuzedelen
+                        Bekijk keuzedelen om je in te schrijven
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                         </svg>
@@ -415,7 +415,7 @@
                 </div>
                 <h2 class="login-required__title">Inloggen vereist</h2>
                 <p class="login-required__text">
-                    Log in op je account om je gekozen keuzedelen te bekijken en je voortgang te volgen.
+                    Log in op je account om je inschrijvingen te bekijken en je voortgang te volgen.
                 </p>
                 <a href="/login" class="login-required__btn">
                     Inloggen

@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="login-page">
+<div class="login-page" style="background: linear-gradient(135deg, #1C3A3A 0%, #2C4A4A 100%);">
     <div class="login-container">
         <!-- Left Side - Info -->
         <div class="login-info">

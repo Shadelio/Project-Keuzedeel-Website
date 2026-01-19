@@ -9,12 +9,12 @@
   --bg-dark: #1A1A1A;
   --surface: #ffffff;
   /* Primary Colors - TCR Official */
-  --primary: #C8D400;  /* Lime groen voor buttons */
-  --primary-light: #D4E000;
-  --primary-dark: #A8B400;
-  --accent: #F9A825;  /* Goud voor tekst */
-  --accent-light: #FFB300;
-  --accent-dark: #E68900;
+  --primary: #16A34A;  /* Groen voor buttons */
+  --primary-light: #22C55E;
+  --primary-dark: #15803D;
+  --accent: #16A34A;  /* Groen voor accenten */
+  --accent-light: #22C55E;
+  --accent-dark: #15803D;
   
   /* Background Colors */
   --dark: #1C3A3A;  /* Donkergroen/teal achtergrond */
@@ -25,9 +25,9 @@
   --medium-gray: #E0E0E0;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #C8D400 0%, #D4E000 100%);
+  --gradient-primary: linear-gradient(135deg, #16A34A 0%, #22C55E 100%);
   --gradient-dark: linear-gradient(135deg, #1C3A3A 0%, #0F2A2A 100%);
-  --gradient-accent: linear-gradient(135deg, #F9A825 0%, #FFB300 100%);
+  --gradient-accent: linear-gradient(135deg, #16A34A 0%, #22C55E 100%);
   
   /* Shadows */
   --shadow-gold: 0 10px 40px -10px rgba(200, 212, 0, 0.3);
@@ -176,13 +176,13 @@ body {
 }
 
 .nav__item:hover {
-  color: #C8D400;
-  background: rgba(200, 212, 0, 0.1);
+  color: #16A34A;
+  background: rgba(22, 163, 74, 0.1);
 }
 
 .nav__item--active {
-  color: #C8D400;
-  background: rgba(200, 212, 0, 0.15);
+  color: #16A34A;
+  background: rgba(22, 163, 74, 0.15);
 }
 
 .nav__btn {
@@ -557,8 +557,9 @@ body {
 }
 
 .btn--primary:hover {
+  background: linear-gradient(135deg, #16A34A 0%, #22C55E 100%);
   transform: translateY(-2px);
-  box-shadow: 0 14px 40px -10px rgba(200, 212, 0, 0.5);
+  box-shadow: 0 14px 40px -10px rgba(22, 163, 74, 0.5);
 }
 
 .btn--primary:active {
@@ -608,8 +609,8 @@ body {
 }
 
 .btn--social:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-hover);
+  border-color: #16A34A;
+  background: rgba(22, 163, 74, 0.05);
 }
 
 .btn--social svg {

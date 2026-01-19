@@ -27,17 +27,6 @@ Route::get('/mijn-keuzedelen', function () {
     return view('mijn-keuzedelen');
 })->name('mijn-keuzedelen');
 
-Route::get('/over-de-school', function () {
-    return view('over-de-school');
-})->name('over-de-school');
-
-Route::get('/over-ons', function () {
-    return view('over-ons');
-})->name('over-ons');
-
-Route::get('/nieuwsberichten', function () {
-    return view('nieuwsberichten');
-})->name('nieuwsberichten');
 
 Route::get('/veelgestelde-vragen', function () {
     return view('veelgestelde-vragen');
@@ -59,6 +48,3 @@ Route::get('/toegankelijkheid', function () {
     return view('toegankelijkheid');
 })->name('toegankelijkheid');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');

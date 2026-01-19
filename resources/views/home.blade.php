@@ -73,7 +73,7 @@
 }
 
 .home-hero__title span {
-    background: linear-gradient(135deg, #F9A825 0%, #FFB300 50%, #E68900 100%);
+    background: linear-gradient(135deg, #16A34A 0%, #22C55E 50%, #15803D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -135,6 +135,23 @@
 
 .home-hero__visual {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.home-hero__image {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.home-hero__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .home-hero__card {
@@ -431,6 +448,9 @@
             </div>
         </div>
         <div class="home-hero__visual">
+            <div class="home-hero__image">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" alt="Techniek College Rotterdam - Moderne werkplaats">
+            </div>
             <div class="home-hero__card">
                 <div class="home-hero__stats">
                     <div class="home-hero__stat">

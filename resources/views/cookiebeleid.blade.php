@@ -38,7 +38,7 @@
                     </ul>
                     
                     <h2>Contact</h2>
-                    <p>Als u vragen heeft over ons cookiebeleid, neem dan contact met ons op via de contactpagina.</p>
+                    <p>Als u vragen heeft over ons cookiebeleid, neem dan contact met ons op via <a href="mailto:info@techniekcollege.nl">info@techniekcollege.nl</a>.</p>
                 </div>
             </div>
         </div>
