@@ -3,6 +3,10 @@
 @section('title', 'Privacybeleid')
 @section('meta_description', 'Privacybeleid van Techniek College Keuzedeel Portaal')
 
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/privacy.css') }}">
+@endsection
+
 @section('content')
 <section class="page-hero">
     <div class="container">

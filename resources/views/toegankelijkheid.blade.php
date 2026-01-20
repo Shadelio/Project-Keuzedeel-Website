@@ -3,6 +3,10 @@
 @section('title', 'Toegankelijkheid')
 @section('meta_description', 'Toegankelijkheidsverklaring van Techniek College Keuzedeel Portaal')
 
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/toegankelijkheid.css') }}">
+@endsection
+
 @section('content')
 <section class="page-hero">
     <div class="container">

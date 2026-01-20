@@ -3,6 +3,10 @@
 @section('title', 'Cookiebeleid')
 @section('meta_description', 'Cookiebeleid van Techniek College Keuzedeel Portaal')
 
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/cookiebeleid.css') }}">
+@endsection
+
 @section('content')
 <section class="page-hero">
     <div class="container">

@@ -1,0 +1,453 @@
+/* Keuzedelen Page Styles */
+
+/* Keuzedelen Hero */
+.keuzedelen-hero {
+    background: var(--gradient-dark);
+    padding: 120px 0 60px;
+    position: relative;
+}
+
+.keuzedelen-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse 800px 600px at 30% 20%, rgba(200, 212, 0, 0.15), transparent),
+        radial-gradient(ellipse 600px 400px at 70% 80%, rgba(200, 212, 0, 0.1), transparent);
+    pointer-events: none;
+}
+
+.keuzedelen-hero__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.keuzedelen-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200, 212, 0, 0.15);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(200, 212, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.keuzedelen-hero__badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.keuzedelen-hero__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    margin: 0 0 20px;
+    line-height: 1.1;
+}
+
+.keuzedelen-hero__title span {
+    color: var(--primary);
+}
+
+.keuzedelen-hero__text {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    line-height: 1.7;
+    margin: 0 0 24px;
+}
+
+.keuzedelen-hero__stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 40px;
+}
+
+.keuzedelen-hero__stat {
+    text-align: left;
+}
+
+.keuzedelen-hero__stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+}
+
+.keuzedelen-hero__stat-label {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Notice Bar */
+.notice-bar {
+    background: linear-gradient(135deg, #16A34A 0%, #22C55E 100%);
+    color: white;
+    padding: 16px 0;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.notice-bar__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.notice-bar__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.notice-bar__text {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Keuzedelen Grid */
+.keuzedelen-section {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.keuzedelen-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.keuzedelen-section__header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.keuzedelen-section__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 12px;
+}
+
+.keuzedelen-section__subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.keuzedelen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.keuzedeel-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(200, 212, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.keuzedeel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px rgba(200, 212, 0, 0.15);
+}
+
+.keuzedeel-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #1C3A3A 0%, #2C4A4A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.keuzedeel-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.keuzedeel-card__content {
+    padding: 28px;
+}
+
+.keuzedeel-card__header {
+    margin-bottom: 16px;
+}
+
+.keuzedeel-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 8px;
+}
+
+.keuzedeel-card__meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.keuzedeel-card__niveau {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(200, 212, 0, 0.1);
+    color: #1C3A3A;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.keuzedeel-card__sbu {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(200, 212, 0, 0.05);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.keuzedeel-card__description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.keuzedeel-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.keuzedeel-card__tag {
+    background: var(--light-gray);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.keuzedeel-card__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.keuzedeel-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    flex: 1;
+}
+
+.keuzedeel-card__link:hover {
+    gap: 12px;
+}
+
+.keuzedeel-card__link svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__content {
+    background: white;
+    border-radius: 24px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.modal__close:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+}
+
+.modal__header {
+    padding: 40px 40px 24px;
+}
+
+.modal__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1C3A3A;
+    margin: 0 0 12px;
+}
+
+.modal__meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.modal__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.modal__badge--niveau {
+    background: rgba(200, 212, 0, 0.1);
+    color: #1C3A3A;
+}
+
+.modal__badge--sbu {
+    background: rgba(200, 212, 0, 0.05);
+    color: #666;
+}
+
+.modal__body {
+    padding: 0 40px 40px;
+}
+
+.modal__section {
+    margin-bottom: 32px;
+}
+
+.modal__section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1C3A3A;
+    margin: 0 0 16px;
+}
+
+.modal__section p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 16px;
+}
+
+.modal__section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal__section li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #666;
+}
+
+.modal__section li svg {
+    width: 20px;
+    height: 20px;
+    color: #C8D400;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .keuzedelen-hero__stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .keuzedelen-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal__header {
+        padding: 32px 24px 20px;
+    }
+    
+    .modal__body {
+        padding: 0 24px 32px;
+    }
+}

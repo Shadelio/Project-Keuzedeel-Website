@@ -3,6 +3,10 @@
 @section('title', 'Veelgestelde Vragen')
 @section('meta_description', 'Veelgestelde vragen over het Techniek College')
 
+@section('styles')
+<link rel="stylesheet" href="{{ asset('css/veelgestelde-vragen.css') }}">
+@endsection
+
 @section('content')
 <div class="login-page">
     <div class="login-container">
@@ -109,58 +113,4 @@
     </div>
 </div>
 
-<style>
-.faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-}
-
-.faq-item {
-    background: var(--bg-secondary, #f8fafc);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.faq-item__question {
-    padding: 1rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-primary, #1e293b);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.faq-item__question::-webkit-details-marker {
-    display: none;
-}
-
-.faq-item__question::after {
-    content: '+';
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--primary-color, #3b82f6);
-    transition: transform 0.2s ease;
-}
-
-.faq-item[open] .faq-item__question::after {
-    content: '−';
-}
-
-.faq-item[open] {
-    background: var(--bg-tertiary, #f1f5f9);
-}
-
-.faq-item__answer {
-    padding: 0 1rem 1rem 1rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary, #475569);
-    line-height: 1.6;
-    margin: 0;
-}
-</style>
 @endsection
