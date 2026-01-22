@@ -80,6 +80,19 @@
 
             <form class="form" method="POST" action="{{ route('register.submit') }}" autocomplete="on">
                 @csrf
+                @if ($errors->any())
+                    <div class="form__alert form__alert--error">
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
+                
+                @if (session('success'))
+                    <div class="form__alert form__alert--success">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
                 <div class="form__group">
                     <label class="form__label" for="name">Volledige naam</label>
                     <div class="form__input-wrap">

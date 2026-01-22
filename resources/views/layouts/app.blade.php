@@ -34,11 +34,18 @@
                 </a>
 
                 <nav class="nav">
-                    <a class="nav__link @if(request()->is('/')) nav__link--active @endif" href="/">Home</a>
-                    <a class="nav__link @if(request()->is('keuzedelen')) nav__link--active @endif" href="/keuzedelen">Keuzedelen</a>
-                    <a class="nav__link @if(request()->is('mijn-keuzedelen')) nav__link--active @endif" href="/mijn-keuzedelen">Mijn Inschrijvingen</a>
-                    <a class="nav__link @if(request()->is('login')) nav__link--active @endif" href="/login">Inloggen</a>
-                    <a class="nav__cta" href="/register">Aanmelden</a>
+                    @guest
+                        <a class="nav__link @if(request()->is('login')) nav__link--active @endif" href="{{ route('login') }}">Inloggen</a>
+                        <a class="nav__cta" href="{{ route('register') }}">Aanmelden</a>
+                    @else
+                        <a class="nav__link @if(request()->is('home')) nav__link--active @endif" href="{{ route('home.real') }}">Home</a>
+                        <a class="nav__link @if(request()->is('keuzedelen')) nav__link--active @endif" href="{{ route('keuzedelen') }}">Keuzedelen</a>
+                        <a class="nav__link @if(request()->is('mijn-keuzedelen')) nav__link--active @endif" href="{{ route('mijn-keuzedelen') }}">Mijn Inschrijvingen</a>
+                        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="nav__cta" style="background: #dc2626;">Uitloggen</button>
+                        </form>
+                    @endguest
                 </nav>
 
                 <button class="mobile-menu" id="mobileMenu" aria-label="Menu openen">

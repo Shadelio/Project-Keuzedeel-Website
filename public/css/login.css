@@ -592,6 +592,31 @@ body {
   background: var(--border);
 }
 
+/* Form Alerts */
+.form__alert {
+  padding: 16px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.form__alert--error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+}
+
+.form__alert--success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #16a34a;
+}
+
+.form__alert p {
+  margin: 0;
+}
+
 /* Social Buttons */
 .social-buttons {
   display: grid;

@@ -4,9 +4,7 @@
 @section('meta_description', 'Techniek College Rotterdam - Keuzedeel Portaal voor MBO-studenten. Ontdek onze technische opleidingen en keuzedelen.')
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-@endsection
 @endsection
 
 @section('content')

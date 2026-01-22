@@ -77,7 +77,15 @@
               <p class="login-card__subtitle">Gebruik je schoolaccount om in te loggen</p>
             </div>
 
-            <form class="form" action="#" method="post" autocomplete="on">
+            <form class="form" action="{{ route('login.submit') }}" method="post" autocomplete="on">
+              @csrf
+              @if ($errors->any())
+                <div class="form__alert form__alert--error">
+                  @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                  @endforeach
+                </div>
+              @endif
               <div class="form__group">
                 <label class="form__label" for="email">E-mailadres</label>
                 <div class="form__input-wrap">

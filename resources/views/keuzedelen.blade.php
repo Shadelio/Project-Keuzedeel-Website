@@ -4,9 +4,7 @@
 @section('meta_description', 'Bekijk alle keuzedelen van Techniek College Rotterdam - Verdiep je kennis met aanvullende modules')
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link rel="stylesheet" href="{{ asset('css/keuzedelen.css') }}">
-@endsection
 @endsection
 
 @section('content')

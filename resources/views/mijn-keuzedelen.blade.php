@@ -4,9 +4,7 @@
 @section('meta_description', 'Bekijk en beheer je gekozen keuzedelen')
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <link rel="stylesheet" href="{{ asset('css/mijn-keuzedelen.css') }}">
-@endsection
 @endsection
 
 @section('content')

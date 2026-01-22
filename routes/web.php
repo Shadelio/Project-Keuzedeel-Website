@@ -1,33 +1,49 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
+// Root route - handles both guest and authenticated users
 Route::get('/', function () {
-    return view('home');
+    if (auth()->check()) {
+        return redirect('/home');
+    }
+    return view('login');
 })->name('home');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+// Guest routes (niet ingelogd)
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+    
+    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+    
+    Route::get('/register', function () {
+        return view('register');
+    })->name('register');
+    
+    Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
+});
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+// Authenticated routes (ingelogd)
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home.real');
+    
+    Route::get('/keuzedelen', function () {
+        return view('keuzedelen');
+    })->name('keuzedelen');
+    
+    Route::get('/mijn-keuzedelen', function () {
+        return view('mijn-keuzedelen');
+    })->name('mijn-keuzedelen');
+    
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
-Route::post('/register', function () {
-    // Registratie logica komt hier
-    return redirect('/login')->with('success', 'Registratie succesvol!');
-})->name('register.submit');
-
-Route::get('/keuzedelen', function () {
-    return view('keuzedelen');
-})->name('keuzedelen');
-
-Route::get('/mijn-keuzedelen', function () {
-    return view('mijn-keuzedelen');
-})->name('mijn-keuzedelen');
-
-
+// Public routes (zowel ingelogd als niet ingelogd)
 Route::get('/veelgestelde-vragen', function () {
     return view('veelgestelde-vragen');
 })->name('veelgestelde-vragen');
