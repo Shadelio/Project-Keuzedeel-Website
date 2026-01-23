@@ -45,7 +45,23 @@ class Keuzedeel extends Model
 
     public function isVol()
     {
-        return $this->max_deelnemers && $this->huidige_deelnemers >= $this->max_deelnemers;
+        if (!$this->max_deelnemers) {
+            return false;
+        }
+        
+        // Tel het aantal geaccepteerde inschrijvingen
+        $aantalIngeschreven = $this->inschrijvingen()
+            ->where('status', 'geaccepteerd')
+            ->count();
+            
+        return $aantalIngeschreven >= $this->max_deelnemers;
+    }
+
+    public function getHuidigeDeelnemersAttribute()
+    {
+        return $this->inschrijvingen()
+            ->where('status', 'geaccepteerd')
+            ->count();
     }
 
     public function isBeschikbaar()

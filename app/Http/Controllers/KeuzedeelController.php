@@ -36,33 +36,26 @@ class KeuzedeelController extends Controller
         $user = auth()->user();
         $keuzedeel = Keuzedeel::findOrFail($id);
 
-        // Controleer of gebruiker al is ingeschreven
-        if ($user->isIngeschrevenVoorKeuzedeel($id)) {
-            return back()->with('error', 'Je bent al ingeschreven voor dit keuzedeel.');
+        // Check if user is already enrolled
+        if ($user->isIngeschrevenVoorKeuzedeel($keuzedeel)) {
+            return redirect()->route('keuzedeel.show', $id)
+                ->with('error', 'Je bent al ingeschreven voor dit keuzedeel.');
         }
 
-        // Controleer of keuzedeel vol is
+        // Check if keuzedeel is full
         if ($keuzedeel->isVol()) {
-            return back()->with('error', 'Dit keuzedeel is helaas vol.');
+            return redirect()->route('keuzedeel.show', $id)
+                ->with('error', 'Dit keuzedeel is helaas vol.');
         }
 
-        // Controleer of keuzedeel beschikbaar is
-        if (!$keuzedeel->isBeschikbaar()) {
-            return back()->with('error', 'Dit keuzedeel is niet beschikbaar voor inschrijving.');
-        }
-
-        // Maak inschrijving aan
-        $inschrijving = Inschrijving::create([
+        // Create inschrijving with geaccepteerd status
+        Inschrijving::create([
             'user_id' => $user->id,
             'keuzedeel_id' => $keuzedeel->id,
-            'status' => 'ingeschreven',
+            'status' => 'geaccepteerd',
             'inschrijfdatum' => now(),
             'opmerkingen' => $request->opmerkingen,
         ]);
-
-        // Update aantal deelnemers
-        $keuzedeel->huidige_deelnemers += 1;
-        $keuzedeel->save();
 
         return redirect()->route('mijn-keuzedelen')
             ->with('success', 'Je bent succesvol ingeschreven voor ' . $keuzedeel->titel);
@@ -73,24 +66,24 @@ class KeuzedeelController extends Controller
      */
     public function uitschrijven($id)
     {
-        $user = auth()->user();
-        $inschrijving = Inschrijving::where('user_id', $user->id)
-            ->where('keuzedeel_id', $id)
-            ->firstOrFail();
+        try {
+            $user = auth()->user();
+            $inschrijving = Inschrijving::where('user_id', $user->id)
+                ->where('keuzedeel_id', $id)
+                ->firstOrFail();
 
-        $keuzedeel = $inschrijving->keuzedeel;
+            $keuzedeel = $inschrijving->keuzedeel;
 
-        // Verwijder inschrijving
-        $inschrijving->delete();
+            // Verwijder inschrijving
+            $inschrijving->delete();
 
-        // Update aantal deelnemers
-        if ($keuzedeel->huidige_deelnemers > 0) {
-            $keuzedeel->huidige_deelnemers -= 1;
-            $keuzedeel->save();
+            return redirect()->route('mijn-keuzedelen')
+                ->with('success', 'Je bent succesvol uitgeschreven voor ' . $keuzedeel->titel);
+                
+        } catch (\Exception $e) {
+            return redirect()->route('mijn-keuzedelen')
+                ->with('error', 'Er is een fout opgetreden bij het uitschrijven. Probeer het opnieuw.');
         }
-
-        return redirect()->route('mijn-keuzedelen')
-            ->with('success', 'Je bent uitgeschreven voor ' . $keuzedeel->titel);
     }
 
     /**
