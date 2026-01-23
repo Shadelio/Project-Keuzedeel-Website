@@ -45,4 +45,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function inschrijvingen()
+    {
+        return $this->hasMany(Inschrijving::class);
+    }
+
+    public function keuzedelen()
+    {
+        return $this->belongsToMany(Keuzedeel::class, 'inschrijvingen')
+                    ->withPivot('status', 'inschrijfdatum', 'opmerkingen')
+                    ->withTimestamps();
+    }
+
+    public function isIngeschrevenVoorKeuzedeel($keuzedeelId)
+    {
+        return $this->inschrijvingen()->where('keuzedeel_id', $keuzedeelId)->exists();
+    }
 }

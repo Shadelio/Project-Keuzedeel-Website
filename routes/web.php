@@ -2,6 +2,68 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KeuzedeelController;
+
+// Test route
+Route::get('/test', function () {
+    return "Laravel werkt! Tijd: " . now();
+});
+
+// Nieuwe werkende keuzedelen pagina
+Route::get('/keuzedelen-old', function () {
+    $keuzedelen = App\Models\Keuzedeel::all();
+    
+    return view('keuzedelen-old', ['keuzedelen' => $keuzedelen]);
+})->name('keuzedelen.old');
+
+// Standalone keuzedelen route (geen layout dependency)
+Route::get('/keuzedelen-standalone', function () {
+    $keuzedelen = App\Models\Keuzedeel::all();
+    
+    $html = '<!DOCTYPE html>
+<html>
+<head>
+    <title>Keuzedelen</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .keuzedeel { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .title { color: #16A34A; }
+        .tag { background: #e5e7eb; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin: 2px; }
+        .btn { background: #16A34A; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎓 Keuzedelen</h1>
+            <p>Aantal keuzedelen: ' . $keuzedelen->count() . '</p>
+        </div>';
+    
+    foreach ($keuzedelen as $keuzedeel) {
+        $html .= '
+        <div class="keuzedeel">
+            <h2>' . $keuzedeel->titel . '</h2>
+            <p>' . $keuzedeel->beschrijving . '</p>
+            <div>
+                <span class="tag">' . $keuzedeel->code . '</span>
+                <span class="tag">Niveau ' . $keuzedeel->niveau . '</span>
+                <span class="tag">' . $keuzedeel->ec . ' EC</span>
+                <span class="tag">' . $keuzedeel->huidige_deelnemers . '/' . $keuzedeel->max_deelnemers . ' plekken</span>
+            </div>
+            <p><strong>Docent:</strong> ' . $keuzedeel->docent . ' | <strong>Locatie:</strong> ' . $keuzedeel->locatie . '</p>
+            <a href="/keuzedelen/' . $keuzedeel->id . '" class="btn">Meer informatie →</a>
+        </div>';
+    }
+    
+    $html .= '
+    </div>
+</body>
+</html>';
+    
+    return $html;
+});
 
 // Root route - handles both guest and authenticated users
 Route::get('/', function () {
@@ -33,12 +95,15 @@ Route::middleware('auth')->group(function () {
     })->name('home.real');
     
     Route::get('/keuzedelen', function () {
-        return view('keuzedelen');
-    })->name('keuzedelen');
+    $keuzedelen = App\Models\Keuzedeel::all();
     
-    Route::get('/mijn-keuzedelen', function () {
-        return view('mijn-keuzedelen');
-    })->name('mijn-keuzedelen');
+    return view('keuzedelen-old', ['keuzedelen' => $keuzedelen]);
+})->name('keuzedelen');
+    Route::get('/keuzedelen/{id}', [KeuzedeelController::class, 'show'])->name('keuzedeel.show');
+    Route::post('/keuzedelen/{id}/inschrijven', [KeuzedeelController::class, 'inschrijven'])->name('keuzedeel.inschrijven');
+    Route::delete('/keuzedelen/{id}/uitschrijven', [KeuzedeelController::class, 'uitschrijven'])->name('keuzedeel.uitschrijven');
+    
+    Route::get('/mijn-keuzedelen', [KeuzedeelController::class, 'mijnKeuzedelen'])->name('mijn-keuzedelen');
     
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
