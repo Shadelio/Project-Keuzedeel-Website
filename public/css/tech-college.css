@@ -74,6 +74,8 @@ body {
   background: linear-gradient(135deg, #0A1A1A 0%, #0F2A2A 100%);
   min-height: 100vh;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Typography */
@@ -128,13 +130,15 @@ a:hover {
   top: 0;
   z-index: 1000;
   transition: all var(--transition-base);
+  display: block !important;
+  visibility: visible !important;
 }
 
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-sm) 0;
+  padding: 0.4rem 0;
 }
 
 /* Logo */
@@ -153,10 +157,10 @@ a:hover {
 }
 
 .logo__icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, #1C3A3A, #2C4A4A);
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,18 +168,18 @@ a:hover {
 }
 
 .logo__icon svg {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   color: var(--white);
 }
 
 .logo__text {
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
 .logo__title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #1C3A3A;
 }
@@ -194,7 +198,7 @@ a:hover {
 }
 
 .nav__link {
-  padding: 0.75rem 1.25rem;
+  padding: 0.6rem 1.1rem;
   border-radius: 8px;
   font-weight: 500;
   color: #1C3A3A;
@@ -229,7 +233,7 @@ a:hover {
 }
 
 .nav__cta {
-  padding: 0.75rem 2rem;
+  padding: 0.6rem 1.75rem;
   background: linear-gradient(135deg, #16A34A, #22C55E);
   color: white;
   border-radius: 50px;

@@ -28,8 +28,7 @@
                         </svg>
                     </div>
                     <div class="logo__text">
-                        <span class="logo__title">Techniek College</span>
-                        <span class="logo__subtitle">Keuzedeel Portaal</span>
+                        <span class="logo__title">Techniek College Keuzedeel Portaal</span>
                     </div>
                 </a>
 
@@ -61,11 +60,18 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav__overlay"></div>
         <div class="mobile-nav__content">
-            <a class="mobile-nav__link" href="/">Home</a>
-            <a class="mobile-nav__link" href="/keuzedelen">Keuzedelen</a>
-            <a class="mobile-nav__link" href="/mijn-keuzedelen">Mijn Inschrijvingen</a>
-            <a class="mobile-nav__link" href="/login">Inloggen</a>
-            <a class="mobile-nav__cta" href="/register">Aanmelden</a>
+            @guest
+                <a class="mobile-nav__link" href="/login">Inloggen</a>
+                <a class="mobile-nav__cta" href="/register">Aanmelden</a>
+            @else
+                <a class="mobile-nav__link" href="{{ route('home.real') }}">Home</a>
+                <a class="mobile-nav__link" href="{{ route('keuzedelen') }}">Keuzedelen</a>
+                <a class="mobile-nav__link" href="{{ route('mijn-keuzedelen') }}">Mijn Inschrijvingen</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="mobile-nav__cta" style="background: #dc2626; width: 100%; margin-top: 10px;">Uitloggen</button>
+                </form>
+            @endguest
         </div>
     </div>
 

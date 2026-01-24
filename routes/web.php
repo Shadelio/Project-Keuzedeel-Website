@@ -9,11 +9,33 @@ Route::get('/test', function () {
     return "Laravel werkt! Tijd: " . now();
 });
 
+// NIEUWE SIMPELE TEST
+Route::get('/route-test', function () {
+    return "Nieuwe routes werken! Tijd: " . now();
+});
+
+// DEBUG route voor keuzedelen
+Route::get('/debug-keuzedelen', function () {
+    return "<h1>DEBUG ROUTE WERKT!</h1><p>Tijd: " . now() . "</p><p>Aantal keuzedelen: " . App\Models\Keuzedeel::count() . "</p>";
+});
+
+// COMPLEET NIEUWE KEUZEDELEN ROUTE (BUITEN AUTH)
+Route::get('/keuzedelen-test', function () {
+    return "<h1>KEUZEDELEN TEST ROUTE!</h1><p>Dit moet werken!</p><p>Tijd: " . now() . "</p>";
+});
+
+// ORIGINELE KEUZEDELEN ROUTE - NU WERKEND
+Route::get('/keuzedelen', function () {
+    $keuzedelen = App\Models\Keuzedeel::all();
+    
+    return view('keuzedelen-fixed', ['keuzedelen' => $keuzedelen]);
+})->name('keuzedelen');
+
 // Nieuwe werkende keuzedelen pagina
 Route::get('/keuzedelen-old', function () {
     $keuzedelen = App\Models\Keuzedeel::all();
     
-    return view('keuzedelen-old', ['keuzedelen' => $keuzedelen]);
+    return view('keuzedelen', ['keuzedelen' => $keuzedelen]);
 })->name('keuzedelen.old');
 
 // Standalone keuzedelen route (geen layout dependency)
@@ -94,11 +116,6 @@ Route::middleware('auth')->group(function () {
         return view('home');
     })->name('home.real');
     
-    Route::get('/keuzedelen', function () {
-    $keuzedelen = App\Models\Keuzedeel::all();
-    
-    return view('keuzedelen-old', ['keuzedelen' => $keuzedelen]);
-})->name('keuzedelen');
     Route::get('/keuzedelen/{id}', [KeuzedeelController::class, 'show'])->name('keuzedeel.show');
     Route::post('/keuzedelen/{id}/inschrijven', [KeuzedeelController::class, 'inschrijven'])->name('keuzedeel.inschrijven');
     Route::delete('/keuzedelen/{id}/uitschrijven', [KeuzedeelController::class, 'uitschrijven'])->name('keuzedeel.uitschrijven');
