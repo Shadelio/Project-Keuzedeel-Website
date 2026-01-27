@@ -31,7 +31,7 @@
     @if($keuzedelen_weinig_inschrijvingen->count() > 0)
         <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
             <h3 class="text-lg font-semibold text-yellow-800 mb-2">⚠️ Keuzedelen met weinig inschrijvingen</h3>
-            <p class="text-sm text-yellow-700 mb-3">De volgende keuzedelen hebben minder dan {{ Setting::get('min_deelnemers_grens', 15) }} inschrijvingen:</p>
+            <p class="text-sm text-yellow-700 mb-3">De volgende keuzedelen hebben minder dan 15 inschrijvingen:</p>
             <ul class="space-y-1">
                 @foreach($keuzedelen_weinig_inschrijvingen as $keuzedeel)
                     <li class="text-sm text-yellow-700">
