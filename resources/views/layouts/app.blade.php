@@ -47,6 +47,12 @@
                                     🛠️ Admin
                                 </a>
                             @endif
+                            
+                            @if(auth()->user()->isSlb())
+                                <a class="nav__link @if(request()->is('presentatie*')) nav__link--active @endif" href="{{ route('presentatie') }}" style="color: #16A34A; font-weight: 600;">
+                                    📊 Presentatie
+                                </a>
+                            @endif
                         @endauth
                         
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
@@ -76,6 +82,15 @@
                 <a class="mobile-nav__link" href="{{ route('home.real') }}">Home</a>
                 <a class="mobile-nav__link" href="{{ route('keuzedelen') }}">Keuzedelen</a>
                 <a class="mobile-nav__link" href="{{ route('mijn-keuzedelen') }}">Mijn Inschrijvingen</a>
+                
+                @if(auth()->user()->isSlb())
+                    <a class="mobile-nav__link" href="{{ route('presentatie') }}" style="color: #16A34A; font-weight: 600;">📊 Presentatie</a>
+                @endif
+                
+                @if(auth()->user()->isAdmin())
+                    <a class="mobile-nav__link" href="/admin" style="color: #dc2626; font-weight: 600;">🛠️ Admin</a>
+                @endif
+                
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="mobile-nav__cta" style="background: #dc2626; width: 100%; margin-top: 10px;">Uitloggen</button>

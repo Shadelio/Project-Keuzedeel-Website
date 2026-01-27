@@ -10,7 +10,7 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin routes (test zonder auth eerst)
@@ -203,4 +203,67 @@ Route::get('/cookiebeleid', function () {
 Route::get('/toegankelijkheid', function () {
     return view('toegankelijkheid');
 })->name('toegankelijkheid');
+
+// Tijdelijke routes voor SLB account setup
+Route::get('/create-slb', function () {
+    try {
+        // Eerst bestaande SLB gebruiker verwijderen om conflicten te voorkomen
+        \App\Models\User::where('email', 'slb@keuzedeel.nl')->delete();
+        
+        // Nieuwe SLB gebruiker aanmaken
+        $user = new \App\Models\User();
+        $user->name = 'SLB Begeleider';
+        $user->email = 'slb@keuzedeel.nl';
+        $user->password = \Illuminate\Support\Facades\Hash::make('slb123');
+        $user->role = 'slb';
+        $user->is_active = true;
+        $user->email_verified_at = now(); // Direct verified
+        $user->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'SLB account succesvol aangemaakt!',
+            'email' => 'slb@keuzedeel.nl',
+            'password' => 'slb123',
+            'role' => 'slb',
+            'user_id' => $user->id,
+            'created_at' => $user->created_at,
+            'password_hash' => $user->password // Alleen voor debugging!
+        ]);
+        
+    } catch (Exception $e) {
+        return response()->json([
+            'success' => false,
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ]);
+    }
+});
+
+Route::get('/check-users', function () {
+    $users = \App\Models\User::all(['id', 'name', 'email', 'role', 'is_active', 'created_at']);
+    return response()->json($users);
+});
+
+// Test login route
+Route::get('/test-login', function () {
+    $credentials = [
+        'email' => 'slb@keuzedeel.nl',
+        'password' => 'slb123'
+    ];
+    
+    if (auth()->attempt($credentials)) {
+        return response()->json([
+            'success' => true,
+            'message' => 'Login successful!',
+            'user' => auth()->user()
+        ]);
+    } else {
+        return response()->json([
+            'success' => false,
+            'message' => 'Login failed!',
+            'credentials' => $credentials
+        ]);
+    }
+});
 
