@@ -70,7 +70,7 @@
                         </td>
                         <td class="px-4 py-3">
                             <div class="flex space-x-2">
-                                <a href="{{ route('keuzedeel.detail', $keuzedeel->id) }}" 
+                                <a href="{{ route('keuzedeel.show', $keuzedeel->id) }}" 
                                    class="text-blue-600 hover:text-blue-800 text-sm">Bekijk</a>
                                 @if($keuzedeel->inschrijvingen_count > 0)
                                     <a href="#" class="text-purple-600 hover:text-purple-800 text-sm">Inschrijvingen</a>
