@@ -14,10 +14,13 @@ class Inschrijving extends Model
         'status',
         'inschrijfdatum',
         'opmerkingen',
+        'periode',
+        'accepted_at',
     ];
 
     protected $casts = [
         'inschrijfdatum' => 'date',
+        'accepted_at' => 'datetime',
     ];
 
     public function user()
@@ -38,5 +41,39 @@ class Inschrijving extends Model
     public function isIngeschreven()
     {
         return $this->status === 'ingeschreven';
+    }
+
+    public function accepteer()
+    {
+        $this->status = 'geaccepteerd';
+        $this->accepted_at = now();
+        $this->save();
+        
+        // Update deelnemers count voor keuzedeel
+        $this->keuzedeel->updateHuidigeDeelnemers();
+    }
+
+    public function weiger()
+    {
+        $this->status = 'geweigerd';
+        $this->save();
+        
+        // Update deelnemers count voor keuzedeel
+        $this->keuzedeel->updateHuidigeDeelnemers();
+    }
+
+    public function scopePerPeriode($query, $periode)
+    {
+        return $query->where('periode', $periode);
+    }
+
+    public function scopeGeaccepteerd($query)
+    {
+        return $query->where('status', 'geaccepteerd');
+    }
+
+    public function scopeIngeschreven($query)
+    {
+        return $query->where('status', 'ingeschreven');
     }
 }

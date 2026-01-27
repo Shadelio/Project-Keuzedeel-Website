@@ -23,12 +23,14 @@ class Keuzedeel extends Model
         'locatie',
         'voorwaarden',
         'image_url',
+        'is_active',
     ];
 
     protected $casts = [
         'startdatum' => 'date',
         'einddatum' => 'date',
         'inschrijfdatum' => 'date',
+        'is_active' => 'boolean',
     ];
 
     public function inschrijvingen()
@@ -62,7 +64,45 @@ class Keuzedeel extends Model
 
     public function isBeschikbaar()
     {
-        // Keuzedeel is beschikbaar tenzij het expliciet 'niet_beschikbaar' is
-        return $this->status !== 'niet_beschikbaar' && !$this->isVol();
+        // Keuzedeel is beschikbaar als het actief is en niet 'niet_beschikbaar' status heeft en niet vol is
+        return $this->is_active && 
+               $this->status !== 'niet_beschikbaar' && 
+               !$this->isVol();
+    }
+
+    public function heeftTeWeinigInschrijvingen()
+    {
+        $minGrens = Setting::get('min_deelnemers_grens', 15);
+        return $this->huidige_deelnemers < $minGrens;
+    }
+
+    public function scopeActief($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeInactief($query)
+    {
+        return $query->where('is_active', false);
+    }
+
+    public function scopeBeschikbaar($query)
+    {
+        return $query->where('is_active', true)
+                    ->where('status', '!=', 'niet_beschikbaar');
+    }
+
+    public function getMaxDeelnemersAttribute()
+    {
+        // Gebruik instelling als geen specifieke limiet is ingesteld
+        return $this->attributes['max_deelnemers'] ?? Setting::get('max_deelnemers_per_keuzedeel', 30);
+    }
+
+    public function updateHuidigeDeelnemers()
+    {
+        $this->huidige_deelnemers = $this->inschrijvingen()
+            ->where('status', 'geaccepteerd')
+            ->count();
+        $this->save();
     }
 }

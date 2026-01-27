@@ -40,6 +40,15 @@
                         <a class="nav__link @if(request()->is('home')) nav__link--active @endif" href="{{ route('home.real') }}">Home</a>
                         <a class="nav__link @if(request()->is('keuzedelen')) nav__link--active @endif" href="{{ route('keuzedelen') }}">Keuzedelen</a>
                         <a class="nav__link @if(request()->is('mijn-keuzedelen')) nav__link--active @endif" href="{{ route('mijn-keuzedelen') }}">Mijn Inschrijvingen</a>
+                        
+                        @auth
+                            @if(auth()->user()->isAdmin())
+                                <a class="nav__link nav__link--admin @if(request()->is('admin*')) nav__link--active @endif" href="/admin" style="color: #dc2626; font-weight: 600;">
+                                    🛠️ Admin
+                                </a>
+                            @endif
+                        @endauth
+                        
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                             @csrf
                             <button type="submit" class="nav__cta" style="background: #dc2626;">Uitloggen</button>

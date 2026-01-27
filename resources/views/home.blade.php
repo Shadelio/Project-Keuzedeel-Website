@@ -46,6 +46,9 @@
                 @if(auth()->check())
                     <h1 class="home-hero__title">
                         Welkom terug, <span>{{ auth()->user()->name }}</span>!
+                        @if(auth()->user()->isAdmin())
+                            <span style="color: #dc2626;">🛠️ Admin</span>
+                        @endif
                     </h1>
                 @else
                     <h1 class="home-hero__title">
@@ -102,18 +105,40 @@
                 <div class="home-hero__sidebar">
                     <div class="home-hero__actions">
                         @if(auth()->check())
-                            <a href="/keuzedelen" class="btn btn--primary btn--large">
-                                Ontdek keuzedelen
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                                </svg>
-                            </a>
-                            <a href="/mijn-keuzedelen" class="btn btn--outline btn--large">
-                                Mijn inschrijvingen
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-                                </svg>
-                            </a>
+                            @if(auth()->user()->isAdmin())
+                                <a href="/admin" class="btn btn--primary btn--large" style="background: #dc2626;">
+                                    🛠️ Admin Panel
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </a>
+                                <a href="/keuzedelen" class="btn btn--outline btn--large">
+                                    Ontdek keuzedelen
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                                    </svg>
+                                </a>
+                                <a href="/mijn-keuzedelen" class="btn btn--outline btn--large">
+                                    Mijn inschrijvingen
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                                    </svg>
+                                </a>
+                            @else
+                                <a href="/keuzedelen" class="btn btn--primary btn--large">
+                                    Ontdek keuzedelen
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                                    </svg>
+                                </a>
+                                <a href="/mijn-keuzedelen" class="btn btn--outline btn--large">
+                                    Mijn inschrijvingen
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                                    </svg>
+                                </a>
+                            @endif
                         @else
                             <a href="/register" class="btn btn--primary btn--large">
                                 Aanmelden

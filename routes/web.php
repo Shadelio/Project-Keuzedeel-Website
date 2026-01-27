@@ -3,6 +3,59 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KeuzedeelController;
+use App\Http\Controllers\AdminController;
+
+// Auth routes
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Admin routes (test zonder auth eerst)
+Route::get('/admin-test', function () {
+    return "<h1>Admin Route Werkt!</h1><p>Tijd: " . now() . "</p><p>Ga naar <a href='/admin'>/admin</a> voor volledige admin panel</p>";
+});
+
+// Test admin route zonder middleware voor debugging
+Route::get('/admin-debug', function () {
+    $user = auth()->user();
+    if ($user) {
+        return "<h1>Ingelogd als: {$user->name} ({$user->role})</h1><p>Admin: " . ($user->isAdmin() ? 'Ja' : 'Nee') . "</p><p>Ga naar <a href='/admin'>/admin</a></p>";
+    } else {
+        return "<h1>Niet ingelogd</h1><p>Ga naar <a href='/login'>/login</a></p>";
+    }
+});
+
+// Tijdelijke admin dashboard zonder middleware
+Route::get('/admin-simple', function () {
+    $user = auth()->user();
+    if (!$user || !$user->isAdmin()) {
+        return "<h1>Toegang geweigerd</h1><p>Je hebt geen admin rechten.</p>";
+    }
+    
+    return "<h1>Admin Dashboard</h1>
+            <p>Welkom {$user->name}!</p>
+            <ul>
+                <li><a href='/admin/keuzedelen'>Keuzedelen Beheren</a></li>
+                <li><a href='/admin/inschrijvingen'>Inschrijvingen Beheren</a></li>
+                <li><a href='/admin/studenten'>Studenten Beheren</a></li>
+                <li><a href='/admin/instellingen'>Instellingen</a></li>
+            </ul>";
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/inschrijvingen', [AdminController::class, 'inschrijvingen'])->name('inschrijvingen');
+    Route::get('/keuzedelen', [AdminController::class, 'keuzedelen'])->name('keuzedelen');
+    Route::post('/keuzedelen/{id}/toggle', [AdminController::class, 'toggleKeuzedeel'])->name('toggleKeuzedeel');
+    Route::get('/instellingen', [AdminController::class, 'instellingen'])->name('instellingen');
+    Route::post('/instellingen', [AdminController::class, 'updateInstellingen'])->name('updateInstellingen');
+    Route::get('/dubbele-inschrijvingen', [AdminController::class, 'dubbeleInschrijvingen'])->name('dubbeleInschrijvingen');
+    Route::get('/studenten', [AdminController::class, 'studenten'])->name('studenten');
+    Route::post('/studenten/{id}/toggle', [AdminController::class, 'toggleStudent'])->name('toggleStudent');
+});
 
 // Test route
 Route::get('/test', function () {

@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'is_active',
     ];
 
     /**
@@ -61,5 +63,30 @@ class User extends Authenticatable
     public function isIngeschrevenVoorKeuzedeel($keuzedeelId)
     {
         return $this->inschrijvingen()->where('keuzedeel_id', $keuzedeelId)->exists();
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isStudent()
+    {
+        return $this->role === 'student';
+    }
+
+    public function scopeAdmins($query)
+    {
+        return $query->where('role', 'admin');
+    }
+
+    public function scopeStudents($query)
+    {
+        return $query->where('role', 'student');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
     }
 }
