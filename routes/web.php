@@ -175,6 +175,11 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/mijn-keuzedelen', [KeuzedeelController::class, 'mijnKeuzedelen'])->name('mijn-keuzedelen');
     
+    Route::middleware(['slb'])->group(function () {
+        Route::get('/presentatie', [KeuzedeelController::class, 'presentatie'])->name('presentatie');
+        Route::get('/presentatie/{id}', [KeuzedeelController::class, 'presentatieDetail'])->name('presentatie.detail');
+    });
+    
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

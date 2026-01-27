@@ -75,6 +75,11 @@ class User extends Authenticatable
         return $this->role === 'student';
     }
 
+    public function isSlb()
+    {
+        return $this->role === 'slb';
+    }
+
     public function scopeAdmins($query)
     {
         return $query->where('role', 'admin');
@@ -83,6 +88,11 @@ class User extends Authenticatable
     public function scopeStudents($query)
     {
         return $query->where('role', 'student');
+    }
+
+    public function scopeSlb($query)
+    {
+        return $query->where('role', 'slb');
     }
 
     public function scopeActive($query)

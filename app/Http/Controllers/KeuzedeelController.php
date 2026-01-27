@@ -96,4 +96,50 @@ class KeuzedeelController extends Controller
         
         return view('mijn-keuzedelen', compact('inschrijvingen'));
     }
+
+    /**
+     * Toon keuzedelen in presentatie modus
+     */
+    public function presentatie()
+    {
+        // Check if user is SLB or admin
+        if (!auth()->check() || (!auth()->user()->isSlb() && !auth()->user()->isAdmin())) {
+            abort(403, 'Geen toegang - SLB rechten vereist');
+        }
+
+        $keuzedelen = Keuzedeel::orderBy('titel')->get();
+        
+        return view('keuzedeel-presentatie', compact('keuzedelen'));
+    }
+
+    /**
+     * Toon specifiek keuzedeel in presentatie modus
+     */
+    public function presentatieDetail($id)
+    {
+        // Check if user is SLB or admin
+        if (!auth()->check() || (!auth()->user()->isSlb() && !auth()->user()->isAdmin())) {
+            abort(403, 'Geen toegang - SLB rechten vereist');
+        }
+
+        $keuzedeel = Keuzedeel::findOrFail($id);
+        $alleKeuzedelen = Keuzedeel::orderBy('titel')->get();
+        
+        // Vind huidige index voor navigatie
+        $currentIndex = $alleKeuzedelen->search(function($item) use ($id) {
+            return $item->id == $id;
+        });
+        
+        $vorigeKeuzedeel = $currentIndex > 0 ? $alleKeuzedelen[$currentIndex - 1] : null;
+        $volgendeKeuzedeel = $currentIndex < $alleKeuzedelen->count() - 1 ? $alleKeuzedelen[$currentIndex + 1] : null;
+        $totaalAantal = $alleKeuzedelen->count();
+        
+        return view('keuzedeel-presentatie-detail', compact(
+            'keuzedeel', 
+            'vorigeKeuzedeel', 
+            'volgendeKeuzedeel',
+            'currentIndex',
+            'totaalAantal'
+        ));
+    }
 }
