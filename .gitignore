@@ -22,3 +22,14 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Oude PHP scripts in root (vervangen door database/scripts/)
+check_aantal.php
+create_slb_route.php
+debug_keuzedelen.php
+setup_admin.php
+setup_slb.php
+test_controller.php
+
+# Tijdelijke setup files
+ghjgh/

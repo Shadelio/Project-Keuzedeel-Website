@@ -5,97 +5,99 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KeuzedeelController;
 use App\Http\Controllers\AdminController;
 
-// Auth routes
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+// TCR Access Middleware - Alleen TCR netwerken
+Route::middleware(['tcr'])->group(function () {
+    // Auth routes
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Admin routes (test zonder auth eerst)
-Route::get('/admin-test', function () {
-    return "<h1>Admin Route Werkt!</h1><p>Tijd: " . now() . "</p><p>Ga naar <a href='/admin'>/admin</a> voor volledige admin panel</p>";
-});
+    // Admin routes (test zonder auth eerst)
+    Route::get('/admin-test', function () {
+        return "<h1>Admin Route Werkt!</h1><p>Tijd: " . now() . "</p><p>Ga naar <a href='/admin'>/admin</a> voor volledige admin panel</p>";
+    });
 
-// Test admin route zonder middleware voor debugging
-Route::get('/admin-debug', function () {
-    $user = auth()->user();
-    if ($user) {
-        return "<h1>Ingelogd als: {$user->name} ({$user->role})</h1><p>Admin: " . ($user->isAdmin() ? 'Ja' : 'Nee') . "</p><p>Ga naar <a href='/admin'>/admin</a></p>";
-    } else {
-        return "<h1>Niet ingelogd</h1><p>Ga naar <a href='/login'>/login</a></p>";
-    }
-});
+    // Test admin route zonder middleware voor debugging
+    Route::get('/admin-debug', function () {
+        $user = auth()->user();
+        if ($user) {
+            return "<h1>Ingelogd als: {$user->name} ({$user->role})</h1><p>Admin: " . ($user->isAdmin() ? 'Ja' : 'Nee') . "</p><p>Ga naar <a href='/admin'>/admin</a></p>";
+        } else {
+            return "<h1>Niet ingelogd</h1><p>Ga naar <a href='/login'>/login</a></p>";
+        }
+    });
 
-// Tijdelijke admin dashboard zonder middleware
-Route::get('/admin-simple', function () {
-    $user = auth()->user();
-    if (!$user || !$user->isAdmin()) {
-        return "<h1>Toegang geweigerd</h1><p>Je hebt geen admin rechten.</p>";
-    }
-    
-    return "<h1>Admin Dashboard</h1>
-            <p>Welkom {$user->name}!</p>
-            <ul>
-                <li><a href='/admin/keuzedelen'>Keuzedelen Beheren</a></li>
-                <li><a href='/admin/inschrijvingen'>Inschrijvingen Beheren</a></li>
-                <li><a href='/admin/studenten'>Studenten Beheren</a></li>
-                <li><a href='/admin/instellingen'>Instellingen</a></li>
-            </ul>";
-});
+    // Tijdelijke admin dashboard zonder middleware
+    Route::get('/admin-simple', function () {
+        $user = auth()->user();
+        if (!$user || !$user->isAdmin()) {
+            return "<h1>Toegang geweigerd</h1><p>Je hebt geen admin rechten.</p>";
+        }
+        
+        return "<h1>Admin Dashboard</h1>
+                <p>Welkom {$user->name}!</p>
+                <ul>
+                    <li><a href='/admin/keuzedelen'>Keuzedelen Beheren</a></li>
+                    <li><a href='/admin/inschrijvingen'>Inschrijvingen Beheren</a></li>
+                    <li><a href='/admin/studenten'>Studenten Beheren</a></li>
+                    <li><a href='/admin/instellingen'>Instellingen</a></li>
+                </ul>";
+    });
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/inschrijvingen', [AdminController::class, 'inschrijvingen'])->name('inschrijvingen');
-    Route::get('/keuzedelen', [AdminController::class, 'keuzedelen'])->name('keuzedelen');
-    Route::post('/keuzedelen/{id}/toggle', [AdminController::class, 'toggleKeuzedeel'])->name('toggleKeuzedeel');
-    Route::get('/instellingen', [AdminController::class, 'instellingen'])->name('instellingen');
-    Route::post('/instellingen', [AdminController::class, 'updateInstellingen'])->name('updateInstellingen');
-    Route::get('/dubbele-inschrijvingen', [AdminController::class, 'dubbeleInschrijvingen'])->name('dubbeleInschrijvingen');
-    Route::get('/studenten', [AdminController::class, 'studenten'])->name('studenten');
-    Route::post('/studenten/{id}/toggle', [AdminController::class, 'toggleStudent'])->name('toggleStudent');
-});
+    Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/inschrijvingen', [AdminController::class, 'inschrijvingen'])->name('inschrijvingen');
+        Route::get('/keuzedelen', [AdminController::class, 'keuzedelen'])->name('keuzedelen');
+        Route::post('/keuzedelen/{id}/toggle', [AdminController::class, 'toggleKeuzedeel'])->name('toggleKeuzedeel');
+        Route::get('/instellingen', [AdminController::class, 'instellingen'])->name('instellingen');
+        Route::post('/instellingen', [AdminController::class, 'updateInstellingen'])->name('updateInstellingen');
+        Route::get('/dubbele-inschrijvingen', [AdminController::class, 'dubbeleInschrijvingen'])->name('dubbeleInschrijvingen');
+        Route::get('/studenten', [AdminController::class, 'studenten'])->name('studenten');
+        Route::post('/studenten/{id}/toggle', [AdminController::class, 'toggleStudent'])->name('toggleStudent');
+    });
 
-// Test route
-Route::get('/test', function () {
-    return "Laravel werkt! Tijd: " . now();
-});
+    // Test route
+    Route::get('/test', function () {
+        return "Laravel werkt! Tijd: " . now();
+    });
 
-// NIEUWE SIMPELE TEST
-Route::get('/route-test', function () {
-    return "Nieuwe routes werken! Tijd: " . now();
-});
+    // NIEUWE SIMPELE TEST
+    Route::get('/route-test', function () {
+        return "Nieuwe routes werken! Tijd: " . now();
+    });
 
-// DEBUG route voor keuzedelen
-Route::get('/debug-keuzedelen', function () {
-    return "<h1>DEBUG ROUTE WERKT!</h1><p>Tijd: " . now() . "</p><p>Aantal keuzedelen: " . App\Models\Keuzedeel::count() . "</p>";
-});
+    // DEBUG route voor keuzedelen
+    Route::get('/debug-keuzedelen', function () {
+        return "<h1>DEBUG ROUTE WERKT!</h1><p>Tijd: " . now() . "</p><p>Aantal keuzedelen: " . App\Models\Keuzedeel::count() . "</p>";
+    });
 
-// COMPLEET NIEUWE KEUZEDELEN ROUTE (BUITEN AUTH)
-Route::get('/keuzedelen-test', function () {
-    return "<h1>KEUZEDELEN TEST ROUTE!</h1><p>Dit moet werken!</p><p>Tijd: " . now() . "</p>";
-});
+    // COMPLEET NIEUWE KEUZEDELEN ROUTE (BUITEN AUTH)
+    Route::get('/keuzedelen-test', function () {
+        return "<h1>KEUZEDELEN TEST ROUTE!</h1><p>Dit moet werken!</p><p>Tijd: " . now() . "</p>";
+    });
 
-// ORIGINELE KEUZEDELEN ROUTE - NU WERKEND
-Route::get('/keuzedelen', function () {
-    $keuzedelen = App\Models\Keuzedeel::all();
-    
-    return view('keuzedelen-fixed', ['keuzedelen' => $keuzedelen]);
-})->name('keuzedelen');
+    // ORIGINELE KEUZEDELEN ROUTE - NU WERKEND
+    Route::get('/keuzedelen', function () {
+        $keuzedelen = App\Models\Keuzedeel::all();
+        
+        return view('keuzedelen-fixed', ['keuzedelen' => $keuzedelen]);
+    })->name('keuzedelen');
 
-// Nieuwe werkende keuzedelen pagina
-Route::get('/keuzedelen-old', function () {
-    $keuzedelen = App\Models\Keuzedeel::all();
-    
-    return view('keuzedelen', ['keuzedelen' => $keuzedelen]);
-})->name('keuzedelen.old');
+    // Nieuwe werkende keuzedelen pagina
+    Route::get('/keuzedelen-old', function () {
+        $keuzedelen = App\Models\Keuzedeel::all();
+        
+        return view('keuzedelen', ['keuzedelen' => $keuzedelen]);
+    })->name('keuzedelen.old');
 
-// Standalone keuzedelen route (geen layout dependency)
-Route::get('/keuzedelen-standalone', function () {
-    $keuzedelen = App\Models\Keuzedeel::all();
-    
-    $html = '<!DOCTYPE html>
+    // Standalone keuzedelen route (geen layout dependency)
+    Route::get('/keuzedelen-standalone', function () {
+        $keuzedelen = App\Models\Keuzedeel::all();
+        
+        $html = '<!DOCTYPE html>
 <html>
 <head>
     <title>Keuzedelen</title>
@@ -138,132 +140,133 @@ Route::get('/keuzedelen-standalone', function () {
 </html>';
     
     return $html;
-});
-
-// Root route - handles both guest and authenticated users
-Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect('/home');
-    }
-    return view('login');
-})->name('home');
-
-// Guest routes (niet ingelogd)
-Route::middleware('guest')->group(function () {
-    Route::get('/login', function () {
-        return view('login');
-    })->name('login');
-    
-    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-    
-    Route::get('/register', function () {
-        return view('register');
-    })->name('register');
-    
-    Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
-});
-
-// Authenticated routes (ingelogd)
-Route::middleware('auth')->group(function () {
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home.real');
-    
-    Route::get('/keuzedelen/{id}', [KeuzedeelController::class, 'show'])->name('keuzedeel.show');
-    Route::post('/keuzedelen/{id}/inschrijven', [KeuzedeelController::class, 'inschrijven'])->name('keuzedeel.inschrijven');
-    Route::delete('/keuzedelen/{id}/uitschrijven', [KeuzedeelController::class, 'uitschrijven'])->name('keuzedeel.uitschrijven');
-    
-    Route::get('/mijn-keuzedelen', [KeuzedeelController::class, 'mijnKeuzedelen'])->name('mijn-keuzedelen');
-    
-    Route::middleware(['slb'])->group(function () {
-        Route::get('/presentatie', [KeuzedeelController::class, 'presentatie'])->name('presentatie');
-        Route::get('/presentatie/{id}', [KeuzedeelController::class, 'presentatieDetail'])->name('presentatie.detail');
     });
-    
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-});
 
-// Public routes (zowel ingelogd als niet ingelogd)
-Route::get('/veelgestelde-vragen', function () {
-    return view('veelgestelde-vragen');
-})->name('veelgestelde-vragen');
+    // Root route - handles both guest and authenticated users
+    Route::get('/', function () {
+        if (auth()->check()) {
+            return redirect('/home');
+        }
+        return view('login');
+    })->name('home');
 
-Route::get('/privacy', function () {
-    return view('privacy');
-})->name('privacy');
-
-Route::get('/voorwaarden', function () {
-    return view('voorwaarden');
-})->name('voorwaarden');
-
-Route::get('/cookiebeleid', function () {
-    return view('cookiebeleid');
-})->name('cookiebeleid');
-
-Route::get('/toegankelijkheid', function () {
-    return view('toegankelijkheid');
-})->name('toegankelijkheid');
-
-// Tijdelijke routes voor SLB account setup
-Route::get('/create-slb', function () {
-    try {
-        // Eerst bestaande SLB gebruiker verwijderen om conflicten te voorkomen
-        \App\Models\User::where('email', 'slb@keuzedeel.nl')->delete();
+    // Guest routes (niet ingelogd)
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', function () {
+            return view('login');
+        })->name('login');
         
-        // Nieuwe SLB gebruiker aanmaken
-        $user = new \App\Models\User();
-        $user->name = 'SLB Begeleider';
-        $user->email = 'slb@keuzedeel.nl';
-        $user->password = \Illuminate\Support\Facades\Hash::make('slb123');
-        $user->role = 'slb';
-        $user->is_active = true;
-        $user->email_verified_at = now(); // Direct verified
-        $user->save();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'SLB account succesvol aangemaakt!',
-            'email' => 'slb@keuzedeel.nl',
-            'password' => 'slb123',
-            'role' => 'slb',
-            'user_id' => $user->id,
-            'created_at' => $user->created_at,
-            'password_hash' => $user->password // Alleen voor debugging!
-        ]);
+        Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
         
-    } catch (Exception $e) {
-        return response()->json([
-            'success' => false,
-            'error' => $e->getMessage(),
-            'trace' => $e->getTraceAsString()
-        ]);
-    }
-});
+        Route::get('/register', function () {
+            return view('register');
+        })->name('register');
+        
+        Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
+    });
 
-Route::get('/check-users', function () {
-    $users = \App\Models\User::all(['id', 'name', 'email', 'role', 'is_active', 'created_at']);
-    return response()->json($users);
-});
+    // Authenticated routes (ingelogd)
+    Route::middleware('auth')->group(function () {
+        Route::get('/home', function () {
+            return view('home');
+        })->name('home.real');
+        
+        Route::get('/keuzedelen/{id}', [KeuzedeelController::class, 'show'])->name('keuzedeel.show');
+        Route::post('/keuzedelen/{id}/inschrijven', [KeuzedeelController::class, 'inschrijven'])->name('keuzedeel.inschrijven');
+        Route::delete('/keuzedelen/{id}/uitschrijven', [KeuzedeelController::class, 'uitschrijven'])->name('keuzedeel.uitschrijven');
+        
+        Route::get('/mijn-keuzedelen', [KeuzedeelController::class, 'mijnKeuzedelen'])->name('mijn-keuzedelen');
+        
+        Route::middleware(['slb'])->group(function () {
+            Route::get('/presentatie', [KeuzedeelController::class, 'presentatie'])->name('presentatie');
+            Route::get('/presentatie/{id}', [KeuzedeelController::class, 'presentatieDetail'])->name('presentatie.detail');
+        });
+        
+        Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    });
 
-// Test login route
-Route::get('/test-login', function () {
-    $credentials = [
-        'email' => 'slb@keuzedeel.nl',
-        'password' => 'slb123'
-    ];
-    
-    if (auth()->attempt($credentials)) {
-        return response()->json([
-            'success' => true,
-            'message' => 'Login successful!',
-            'user' => auth()->user()
-        ]);
-    } else {
-        return response()->json([
-            'success' => false,
-            'message' => 'Login failed!',
-            'credentials' => $credentials
-        ]);
-    }
+    // Public routes (zowel ingelogd als niet ingelogd)
+    Route::get('/veelgestelde-vragen', function () {
+        return view('veelgestelde-vragen');
+    })->name('veelgestelde-vragen');
+
+    Route::get('/privacy', function () {
+        return view('privacy');
+    })->name('privacy');
+
+    Route::get('/voorwaarden', function () {
+        return view('voorwaarden');
+    })->name('voorwaarden');
+
+    Route::get('/cookiebeleid', function () {
+        return view('cookiebeleid');
+    })->name('cookiebeleid');
+
+    Route::get('/toegankelijkheid', function () {
+        return view('toegankelijkheid');
+    })->name('toegankelijkheid');
+
+    // Tijdelijke routes voor SLB account setup
+    Route::get('/create-slb', function () {
+        try {
+            // Eerst bestaande SLB gebruiker verwijderen om conflicten te voorkomen
+            \App\Models\User::where('email', 'slb@keuzedeel.nl')->delete();
+            
+            // Nieuwe SLB gebruiker aanmaken
+            $user = new \App\Models\User();
+            $user->name = 'SLB Begeleider';
+            $user->email = 'slb@techniekcollege.nl'; // TCR domein!
+            $user->password = \Illuminate\Support\Facades\Hash::make('slb123');
+            $user->role = 'slb';
+            $user->is_active = true;
+            $user->email_verified_at = now(); // Direct verified
+            $user->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'SLB account succesvol aangemaakt!',
+                'email' => 'slb@techniekcollege.nl',
+                'password' => 'slb123',
+                'role' => 'slb',
+                'user_id' => $user->id,
+                'created_at' => $user->created_at,
+                'password_hash' => $user->password // Alleen voor debugging!
+            ]);
+            
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+        }
+    });
+
+    Route::get('/check-users', function () {
+        $users = \App\Models\User::all(['id', 'name', 'email', 'role', 'is_active', 'created_at']);
+        return response()->json($users);
+    });
+
+    // Test login route
+    Route::get('/test-login', function () {
+        $credentials = [
+            'email' => 'slb@techniekcollege.nl',
+            'password' => 'slb123'
+        ];
+        
+        if (auth()->attempt($credentials)) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Login successful!',
+                'user' => auth()->user()
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Login failed!',
+                'credentials' => $credentials
+            ]);
+        }
+    });
 });
 
