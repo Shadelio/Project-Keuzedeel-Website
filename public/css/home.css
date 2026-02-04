@@ -88,6 +88,20 @@
     border-color: rgba(34, 197, 94, 0.3);
 }
 
+.home-hero__admin-badge {
+    color: #dc2626;
+}
+
+.btn--admin {
+    background: #dc2626;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.btn--admin:hover {
+    background: #b91c1c;
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
 .home-hero__content {
     display: grid;
     grid-template-columns: 2fr 1fr;

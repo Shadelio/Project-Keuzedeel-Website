@@ -3,6 +3,11 @@
    Keuzedeel Portaal
    ============================================ */
 
+/* Login Page Background Gradient */
+.login-page--gradient {
+  background: linear-gradient(135deg, #1C3A3A 0%, #2C4A4A 100%);
+}
+
 :root {
   --bg: #fafbfc;
   --bg-alt: #ffffff;

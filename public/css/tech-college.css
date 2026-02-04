@@ -232,6 +232,26 @@ a:hover {
   color: white;
 }
 
+.nav__link--admin {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.nav__link--admin:hover {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.nav__link--slb {
+  color: #16A34A;
+  font-weight: 600;
+}
+
+.nav__link--slb:hover {
+  color: #16A34A;
+  background: rgba(22, 163, 74, 0.1);
+}
+
 .nav__cta {
   padding: 0.6rem 1.75rem;
   background: linear-gradient(135deg, #16A34A, #22C55E);
@@ -246,6 +266,20 @@ a:hover {
   background: linear-gradient(135deg, #15803D, #16A34A);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+}
+
+.nav__cta--logout {
+  background: #dc2626;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.nav__cta--logout:hover {
+  background: #b91c1c;
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.form--inline {
+  display: inline;
 }
 
 /* Mobile Menu */
@@ -973,6 +1007,26 @@ a:hover {
   text-align: center;
   border-radius: 50px;
   font-weight: 600;
+}
+
+.mobile-nav__link--admin {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.mobile-nav__link--slb {
+  color: #16A34A;
+  font-weight: 600;
+}
+
+.mobile-nav__cta--logout {
+  background: #dc2626;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.mobile-nav__cta--logout:hover {
+  background: #b91c1c;
 }
 
 .mobile-menu--open span:nth-child(1) {

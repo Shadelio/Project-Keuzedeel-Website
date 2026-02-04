@@ -1,5 +1,16 @@
 /* Keuzedelen Page Styles */
 
+/* Status Labels */
+.status-label--vol {
+    color: red;
+    font-weight: bold;
+}
+
+.status-label--beschikbaar {
+    color: green;
+    font-weight: bold;
+}
+
 /* Keuzedelen Hero */
 .keuzedelen-hero {
     background: var(--gradient-dark);
