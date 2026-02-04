@@ -236,6 +236,11 @@
     color: #dc2626;
 }
 
+.keuzedeel-detail__status-message--warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
 .keuzedeel-detail__status-message svg {
     width: 20px;
     height: 20px;

@@ -16,6 +16,7 @@ class Inschrijving extends Model
         'opmerkingen',
         'periode',
         'accepted_at',
+        'bron',
     ];
 
     protected $casts = [
@@ -75,5 +76,15 @@ class Inschrijving extends Model
     public function scopeIngeschreven($query)
     {
         return $query->where('status', 'ingeschreven');
+    }
+
+    public function scopeVoltooid($query)
+    {
+        return $query->where('status', 'voltooid');
+    }
+
+    public function isVoltooid()
+    {
+        return $this->status === 'voltooid';
     }
 }

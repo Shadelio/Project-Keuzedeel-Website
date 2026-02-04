@@ -71,6 +71,14 @@
                                             {{ ucfirst($inschrijving->status) }}
                                         </span>
                                         <span class="mijn-keuzedeel-card__code">{{ $inschrijving->keuzedeel->code }}</span>
+                                        @if($inschrijving->bron === 'eduarte')
+                                            <span class="mijn-keuzedeel-card__bron mijn-keuzedeel-card__bron--eduarte">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                                                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                                                </svg>
+                                                Eduarte
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -110,6 +118,7 @@
                                     <a href="{{ route('keuzedeel.show', $inschrijving->keuzedeel->id) }}" class="btn btn--outline btn--small">
                                         Bekijk details
                                     </a>
+                                    @if($inschrijving->status !== 'voltooid')
                                     <form action="{{ route('keuzedeel.uitschrijven', $inschrijving->keuzedeel->id) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je je wilt uitschrijven?')">
                                         @csrf
                                         @method('DELETE')
@@ -117,6 +126,7 @@
                                             Uitschrijven
                                         </button>
                                     </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>

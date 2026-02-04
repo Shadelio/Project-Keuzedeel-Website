@@ -65,6 +65,52 @@ class User extends Authenticatable
         return $this->inschrijvingen()->where('keuzedeel_id', $keuzedeelId)->exists();
     }
 
+    public function heeftKeuzedeelVoltooid($keuzedeelId)
+    {
+        return $this->inschrijvingen()
+            ->where('keuzedeel_id', $keuzedeelId)
+            ->where('status', 'voltooid')
+            ->exists();
+    }
+
+    public function heeftKeuzedeelAlGedaan($keuzedeelId)
+    {
+        return $this->inschrijvingen()
+            ->where('keuzedeel_id', $keuzedeelId)
+            ->whereIn('status', ['voltooid', 'geaccepteerd'])
+            ->exists();
+    }
+
+    public function heeftInschrijvingInPeriode($startdatum, $einddatum)
+    {
+        return $this->inschrijvingen()
+            ->whereIn('status', ['geaccepteerd', 'ingeschreven'])
+            ->whereHas('keuzedeel', function($query) use ($startdatum, $einddatum) {
+                $query->where(function($q) use ($startdatum, $einddatum) {
+                    // Check for overlapping periods
+                    $q->where('startdatum', '<=', $einddatum)
+                      ->where('einddatum', '>=', $startdatum);
+                });
+            })
+            ->exists();
+    }
+
+    public function getConflicterendKeuzedeel($startdatum, $einddatum)
+    {
+        $inschrijving = $this->inschrijvingen()
+            ->whereIn('status', ['geaccepteerd', 'ingeschreven'])
+            ->whereHas('keuzedeel', function($query) use ($startdatum, $einddatum) {
+                $query->where(function($q) use ($startdatum, $einddatum) {
+                    $q->where('startdatum', '<=', $einddatum)
+                      ->where('einddatum', '>=', $startdatum);
+                });
+            })
+            ->with('keuzedeel')
+            ->first();
+
+        return $inschrijving ? $inschrijving->keuzedeel : null;
+    }
+
     public function isAdmin()
     {
         return $this->role === 'admin';

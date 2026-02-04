@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'eduarte' => [
+        'url' => env('EDUARTE_API_URL'),
+        'key' => env('EDUARTE_API_KEY'),
+    ],
+
+    'powerbi' => [
+        'url' => env('POWERBI_API_URL'),
+        'client_id' => env('POWERBI_CLIENT_ID'),
+        'client_secret' => env('POWERBI_CLIENT_SECRET'),
+    ],
+
 ];

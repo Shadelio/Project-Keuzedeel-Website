@@ -11,6 +11,91 @@
     font-weight: bold;
 }
 
+/* Keuzedeel Card Status Ribbons */
+.keuzedeel-card__ribbon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    z-index: 10;
+}
+
+.keuzedeel-card__ribbon--voltooid {
+    background: linear-gradient(135deg, #16A34A, #22C55E);
+}
+
+.keuzedeel-card__ribbon--ingeschreven {
+    background: linear-gradient(135deg, #3B82F6, #60A5FA);
+}
+
+.keuzedeel-card__ribbon--vol {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.keuzedeel-card__ribbon--unavailable {
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+}
+
+/* Disabled Card State */
+.keuzedeel-card--disabled {
+    opacity: 0.7;
+    position: relative;
+}
+
+.keuzedeel-card--disabled::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+.keuzedeel-card--disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Enrolled Card State */
+.keuzedeel-card--enrolled {
+    border: 2px solid #3B82F6;
+}
+
+/* Additional Status Badges */
+.keuzedeel-card__status--voltooid {
+    background: rgba(22, 163, 74, 0.1);
+    color: #16A34A;
+}
+
+.keuzedeel-card__status--enrolled {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+}
+
+.keuzedeel-card__status--unavailable {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.keuzedeel-card__ribbon--conflict {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.keuzedeel-card__status--conflict {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
 /* Keuzedelen Hero */
 .keuzedelen-hero {
     background: var(--gradient-dark);

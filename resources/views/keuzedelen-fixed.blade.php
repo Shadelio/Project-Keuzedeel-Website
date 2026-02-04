@@ -356,7 +356,16 @@
         <div class="keuzedelen-container">
             <div class="keuzedelen-grid">
                 @foreach($keuzedelen as $keuzedeel)
-                    <div class="keuzedeel-card">
+                    @php
+                        $isVoltooid = auth()->check() && auth()->user()->heeftKeuzedeelVoltooid($keuzedeel->id);
+                        $isIngeschreven = auth()->check() && auth()->user()->isIngeschrevenVoorKeuzedeel($keuzedeel->id);
+                        $isVol = $keuzedeel->isVol();
+                        $isNietBeschikbaar = !$keuzedeel->isBeschikbaar();
+                        $conflicterendKeuzedeel = auth()->check() && !$isIngeschreven ? auth()->user()->getConflicterendKeuzedeel($keuzedeel->startdatum, $keuzedeel->einddatum) : null;
+                        $heeftPeriodeConflict = $conflicterendKeuzedeel !== null;
+                        $kanNietKiezen = $isVoltooid || $isVol || $isNietBeschikbaar || $heeftPeriodeConflict;
+                    @endphp
+                    <div class="keuzedeel-card {{ $kanNietKiezen ? 'keuzedeel-card--disabled' : '' }} {{ $isIngeschreven ? 'keuzedeel-card--enrolled' : '' }}">
                         <div class="keuzedeel-card__image">
                             <img src="{{ $keuzedeel->image_url ?? 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=200&fit=crop' }}" 
                                  alt="{{ $keuzedeel->titel }}" 
@@ -369,6 +378,42 @@
                                     {{ $keuzedeel->ec }} EC
                                 </div>
                             </div>
+                            @if($isVoltooid)
+                                <div class="keuzedeel-card__ribbon keuzedeel-card__ribbon--voltooid">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Al voltooid
+                                </div>
+                            @elseif($isIngeschreven)
+                                <div class="keuzedeel-card__ribbon keuzedeel-card__ribbon--ingeschreven">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Ingeschreven
+                                </div>
+                            @elseif($isVol)
+                                <div class="keuzedeel-card__ribbon keuzedeel-card__ribbon--vol">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                                    </svg>
+                                    Vol
+                                </div>
+                            @elseif($heeftPeriodeConflict)
+                                <div class="keuzedeel-card__ribbon keuzedeel-card__ribbon--conflict">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                    </svg>
+                                    Periode conflict
+                                </div>
+                            @elseif($isNietBeschikbaar)
+                                <div class="keuzedeel-card__ribbon keuzedeel-card__ribbon--unavailable">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Niet beschikbaar
+                                </div>
+                            @endif
                         </div>
                         
                         <div class="keuzedeel-card__content">
@@ -407,8 +452,16 @@
                                         <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                                     </svg>
                                     <span>{{ $keuzedeel->huidige_deelnemers }}/{{ $keuzedeel->max_deelnemers }}</span>
-                                    @if($keuzedeel->isVol())
+                                    @if($isVoltooid)
+                                        <span class="keuzedeel-card__status keuzedeel-card__status--voltooid">Voltooid</span>
+                                    @elseif($isIngeschreven)
+                                        <span class="keuzedeel-card__status keuzedeel-card__status--enrolled">Ingeschreven</span>
+                                    @elseif($isVol)
                                         <span class="keuzedeel-card__status keuzedeel-card__status--vol">Vol</span>
+                                    @elseif($heeftPeriodeConflict)
+                                        <span class="keuzedeel-card__status keuzedeel-card__status--conflict">Periode conflict</span>
+                                    @elseif($isNietBeschikbaar)
+                                        <span class="keuzedeel-card__status keuzedeel-card__status--unavailable">Niet beschikbaar</span>
                                     @else
                                         <span class="keuzedeel-card__status keuzedeel-card__status--available">Beschikbaar</span>
                                     @endif

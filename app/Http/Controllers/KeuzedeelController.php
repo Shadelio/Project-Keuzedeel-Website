@@ -36,10 +36,23 @@ class KeuzedeelController extends Controller
         $user = auth()->user();
         $keuzedeel = Keuzedeel::findOrFail($id);
 
+        // Check if user has already completed this keuzedeel
+        if ($user->heeftKeuzedeelVoltooid($keuzedeel->id)) {
+            return redirect()->route('keuzedeel.show', $id)
+                ->with('error', 'Je hebt dit keuzedeel al voltooid. Je kunt je niet opnieuw inschrijven.');
+        }
+
         // Check if user is already enrolled
-        if ($user->isIngeschrevenVoorKeuzedeel($keuzedeel)) {
+        if ($user->isIngeschrevenVoorKeuzedeel($keuzedeel->id)) {
             return redirect()->route('keuzedeel.show', $id)
                 ->with('error', 'Je bent al ingeschreven voor dit keuzedeel.');
+        }
+
+        // Check if user already has an enrollment in the same period
+        $conflicterendKeuzedeel = $user->getConflicterendKeuzedeel($keuzedeel->startdatum, $keuzedeel->einddatum);
+        if ($conflicterendKeuzedeel) {
+            return redirect()->route('keuzedeel.show', $id)
+                ->with('error', 'Je bent al ingeschreven voor "' . $conflicterendKeuzedeel->titel . '" in dezelfde periode. Je kunt maar voor één keuzedeel per periode inschrijven.');
         }
 
         // Check if keuzedeel is full
